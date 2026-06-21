@@ -1,4 +1,4 @@
-# ARKELYTEX
+# ARKELYTHEX
 
 **Engineering resilient systems for Latin America's public and industrial infrastructure.**
 
