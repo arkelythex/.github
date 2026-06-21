@@ -27,7 +27,7 @@
 
 ## Founder
 
-Founded by [Dreamcoder08](https://github.com/Dreamcoder08) — Software Architect, GDE, Microsoft MVP.
+Founded by [Dreamcoder08](https://github.com/Dreamcoder08) — Software Architect, GDE.
 
 ---
 
