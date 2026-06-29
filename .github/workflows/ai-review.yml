@@ -1,0 +1,169 @@
+# GGA AI Review Workflow
+# Runs Gentleman Guardian Angel with DeepSeek V4 Flash on PRs to main
+# This flow reviews changes to the public organization repository.
+# No secrets or internal information are exposed.
+
+name: GGA AI Review
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+  pull-requests: write
+  checks: write
+
+jobs:
+  validate-workflow:
+    name: Validate workflow syntax
+    # Only run for PRs from the same repository (not external forks)
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Run actionlint
+        # Pinned to commit SHA of rhysd/actionlint@v1.7.7
+        uses: rhysd/actionlint@03d0035246f3e81f36aed592ffb4bebf33a03106
+
+  gga-review:
+    name: GGA Review (DeepSeek V4 Flash)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    needs: validate-workflow
+    # Only run for PRs from the same repository (not external forks)
+    if: github.event.pull_request.head.repo.full_name == github.repository
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Fetch base branch for diff
+        run: |
+          git fetch origin "${{ github.event.pull_request.base.ref }}":"${{ github.event.pull_request.base.ref }}"
+
+      - name: Verify AGENTS.md exists
+        run: |
+          if [[ ! -f "AGENTS.md" ]]; then
+            echo "ERROR: AGENTS.md rules file not found in repository root"
+            exit 1
+          fi
+          echo "AGENTS.md found ($(wc -l < AGENTS.md) lines)"
+
+      - name: Run GGA review via DeepSeek API
+        id: gga
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: |
+          set -Eeuo pipefail
+
+          CHANGED_FILES=$(git diff --name-only "origin/${{ github.event.pull_request.base.ref }}...HEAD" || true)
+          if [[ -z "$CHANGED_FILES" ]]; then
+            echo "result=empty" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          echo "Files to review:"
+          echo "$CHANGED_FILES"
+          echo "result=reviewed" >> "$GITHUB_OUTPUT"
+
+          REVIEW_FILE="/tmp/gga-review.md"
+          > "$REVIEW_FILE"
+
+          while IFS= read -r file; do
+            if [[ ! -f "$file" ]]; then
+              continue
+            fi
+
+            echo "::group::Reviewing: $file"
+
+            # Build JSON payload safely using jq
+            PAYLOAD=$(jq -n \
+              --arg model "deepseek-chat" \
+              --rawfile rules AGENTS.md \
+              --rawfile content "$file" \
+              --arg filename "$file" \
+              '{
+                model: $model,
+                messages: [
+                  {
+                    role: "system",
+                    content: "You are a code reviewer for the arkelythex organization. Analyze code against the provided coding standards. Be concise and specific. Output in markdown format."
+                  },
+                  {
+                    role: "user",
+                    content: ("Review the following file content against the coding standards below.\n\nRULES:\n" + $rules + "\n\nFILE: " + $filename + "\n\nCONTENT:\n" + $content + "\n\nPerform a code review following the rules above. Output in the specified format.")
+                  }
+                ],
+                temperature: 0.1,
+                max_tokens: 4096
+              }')
+
+            RESPONSE=$(curl -sS \
+              -H "Content-Type: application/json" \
+              -H "Authorization: Bearer $DEEPSEEK_API_KEY" \
+              -d "$PAYLOAD" \
+              https://api.deepseek.com/v1/chat/completions)
+
+            REVIEW=$(echo "$RESPONSE" | jq -r '.choices[0].message.content // "Error: No response from API"')
+            echo "## File: $file" >> "$REVIEW_FILE"
+            echo "" >> "$REVIEW_FILE"
+            echo "$REVIEW" >> "$REVIEW_FILE"
+            echo "" >> "$REVIEW_FILE"
+            echo "---" >> "$REVIEW_FILE"
+            echo "" >> "$REVIEW_FILE"
+
+            echo "::endgroup::"
+          done <<< "$CHANGED_FILES"
+
+          echo "Review written to $REVIEW_FILE ($(wc -l < "$REVIEW_FILE") lines)"
+
+      - name: Post review comment
+        if: steps.gga.outputs.result == 'reviewed'
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
+        with:
+          script: |
+            const fs = require('fs');
+            const reviewPath = '/tmp/gga-review.md';
+            if (!fs.existsSync(reviewPath)) {
+              console.log('No review file found, skipping comment');
+              return;
+            }
+            const review = fs.readFileSync(reviewPath, 'utf8').trim();
+            if (!review) {
+              console.log('Empty review, skipping comment');
+              return;
+            }
+            const output = `## 🤖 GGA AI Review (DeepSeek V4 Flash)\n\n${review}\n\n<!-- gga-review -->`;
+
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+
+            const existing = comments.find(c =>
+              c.body && c.body.includes('<!-- gga-review -->')
+            );
+
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existing.id,
+                body: output,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: output,
+              });
+            }

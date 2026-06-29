@@ -1,0 +1,26 @@
+# Gentleman Guardian Angel Configuration
+# Generado para arkelythex/.github (repositorio público de organización)
+
+# Provider: DeepSeek V4 Flash via API directa
+PROVIDER="deepseek:deepseek-chat"
+
+# File patterns to review (all files in org repo)
+FILE_PATTERNS="*"
+
+# Review execution command
+REVIEW_EXEC="gga run"
+
+# Rules file for code review
+RULES_FILE="AGENTS.md"
+
+# Summary max length (characters)
+SUMMARY_MAX_LEN=500
+
+# Output format
+OUTPUT_FORMAT="markdown"
+
+# Strict mode (fail on ambiguous AI responses)
+STRICT_MODE=true
+
+# Review timeout in seconds
+TIMEOUT_SEC=120
