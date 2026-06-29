@@ -1,36 +1,83 @@
 # ARKELYTHEX
 
-**Engineering resilient systems for Latin America's public and industrial infrastructure.**
+> **Inteligencia Fiscal-Operativa para LATAM**
+
+ARKELYTHEX convierte la infraestructura de compliance fiscal (SUNAT, SIRE, IGV, retenciones, detracciones) en un sistema operativo unificado — accionable, auditado, y aumentado por inteligencia artificial con supervisión humana.
 
 ---
 
-## What we build
+## Drenyra — The Command Center
 
-| Domain | Repositories |
-|--------|-------------|
-| **Civic Tech** | Digital_Public_peru, elect-validate, landing-page-electoral-peru |
-| **Agro & Industry** | EdgeTraz-Agro |
-| **Robotics & Edge AI** | AndinoDroneLab |
-| **Legal & Business Ops** | Administracion, legal-os, hotel-pms, accountings-pro-frontend |
-| **Platform & Core** | Arkelythex (monorepo), kuntur, arkalythix-grid |
+Drenyra is the flagship product and operational command center: an inspectable workspace where AI agents prepare, review, and explain accounting work under human supervision with versioned evidence and approval gates.
 
-## Stack
-
-`Rust` · `Go` · `TypeScript` · `Next.js` · `React` · `Python` · `ROS 2` · `PX4` · `Bun` · `Tailwind CSS` · `PostgreSQL`
-
-## Philosophy
-
-- **Audit-first design** — transparency and verifiability are non-negotiable.
-- **Open by default** — public repos we can share, private only where required.
-- **Latin America first** — built for Peru's reality, designed to scale across the region.
-- **Edge to cloud** — from autonomous drones to web platforms, we own the full stack.
-
-## Founder
-
-Founded by [Dreamcoder08](https://github.com/Dreamcoder08) — Software Architect, GDE.
+- **Fiscal Intelligence, Evidence-First** — Every decision anchors to versioned evidence
+- **Continuous Operational Visibility** — Cash-flow, close, reconciliation in one place
+- **Agentic Work with Approval Gates** — AI drafts, humans approve, the audit trail captures everything
+- **Multi-RUC, Multi-Tenant** — Built for accounting firms managing multiple clients
 
 ---
 
-<p align="center">
-  <sub>Lima · Cusco · Montevideo</sub>
-</p>
+## Products
+
+| Product | Tagline | Status | Stack |
+|---------|---------|--------|-------|
+| **Andino** — AndinoDroneLab | Agentic AI platform for drone engineering evolution | Active (Phase 1 ~90%) | Python, NSGA-II, CadQuery, PX4 |
+| **Estado** — CivicTech Peru | Civic tech open-source para Peru — transparencia y participación | Active (MVP) | Rust (Axum), Next.js, PostgreSQL |
+| **Kuse** — Kuse Cowork | Open-source desktop cowork agent (alternative to Claude Cowork) | Active (v0.0.2) | Rust + Tauri, SolidJS, Docker |
+| **Senzar** — EdgeTraz Agro | Trazabilidad agro-industrial con IA + Rust en el edge | Active (Pilot) | Rust (ESP32/RPi), TensorFlow Lite, Next.js |
+
+---
+
+## Architecture
+
+### Stack
+
+| Layer | Technology |
+|-------|------------|
+| Frontend (web) | React 19 + Vite 7 + TanStack Router |
+| Backend API | Bun 1.3 + Elysia 1.4 + OpenAPI |
+| Data Engine | Python 3.11 + FastAPI + Polars |
+| Database | PostgreSQL 16 + Drizzle ORM |
+| Messaging | NATS JetStream 2.10 |
+| AI/Agents | OpenRouter + Gemini + Mastra |
+| CLI | Go + Cobra + Bubbletea |
+| Design System | Tailwind CSS 4 + shadcn/ui + Glass & Steel (DTCG tokens) |
+
+### Architecture Invariants
+
+1. **AI is advisory, not fiscal authority** — AI prepares/reviews; humans approve material actions
+2. **Fiscal truth is deterministic and replayable** — All fiscal paths are 100% test-covered
+3. **Evidence-first** — Every claim anchors to source artifacts with content hashes
+4. **Integer math for money** — Never floating point for financial values
+5. **SDD for critical changes** — Full SDD cycle for compliance, schema, and monetary logic changes
+
+---
+
+## Repositories
+
+| Category | Repos | Description |
+|----------|-------|-------------|
+| **Core** | Arkelythex (monorepo), Drenyra | Flagship platform repos |
+| **Web** | DreamFolio, Somnyx-web, dreamcoder-web | Public-facing applications |
+| **Tools** | Somnyx-tui, codex-desktop-linux, Gentleman Guardian Angel, zeroclaw, opencode-desktop-bin | CLI, TUI, developer tooling |
+| **Config** | Dreamcoder_dots, CleanSweep | Dotfiles and system configuration |
+
+---
+
+## Current Priorities — Q3 2026
+
+1. **Platform Stabilization** — CI/CD hardening, test infra, deployment automation, observability
+2. **Drenyra Agent System** — Instruction parsing, sandboxed execution, evidence graph, approval gates
+3. **Product Launches** — Estado MVP, Senzar PoC, Kuse v0.3.0, Andino Phase 1 validation
+4. **Documentation Overhaul** — SDD ecosystem docs propagated to all repos
+
+---
+
+## Connect
+
+- **Location:** Lima · Cusco · Montevideo
+- **Ecosystem SDD:** See our [SDD Maestro](https://github.com/arkelythex/Arkelythex/blob/main/sdd/ecosystem-readme-sdd/00-README.md) — the single source of truth for all documentation
+
+---
+
+*Documentation is maintained in the [SDD Maestro](https://github.com/arkelythex/Arkelythex/blob/main/sdd/ecosystem-readme-sdd/00-README.md) — edit there first, then propagate.*
