@@ -6,14 +6,14 @@ ARKELYTHEX convierte la infraestructura de compliance fiscal (SUNAT, SIRE, IGV, 
 
 ---
 
-## Drenyra — The Command Center
+## Drenyra — Codex + Digits
 
-Drenyra is the flagship product and operational command center: an inspectable workspace where AI agents prepare, review, and explain accounting work under human supervision with versioned evidence and approval gates.
+**Drenyra** es el producto flagship de ARKELYTHEX. Su ADN se compone de dos layers:
 
-- **Fiscal Intelligence, Evidence-First** — Every decision anchors to versioned evidence
-- **Continuous Operational Visibility** — Cash-flow, close, reconciliation in one place
-- **Agentic Work with Approval Gates** — AI drafts, humans approve, the audit trail captures everything
-- **Multi-RUC, Multi-Tenant** — Built for accounting firms managing multiple clients
+- **Codex** — Motor de reglas fiscales deterministas. Traduce SUNAT, RUC, IGV, SIRE, CDR, detracciones, PLE en lógica testable, replayable y 100% cubierta por tests. TypeScript strict, Bun + Elysia, PostgreSQL.
+- **Digits** — Experiencia de usuario. Web SPA (React 19) para el día a día + CLI (Go + Bubbletea) para operaciones avanzadas. Cash-flow, close, conciliación y compliance en una interfaz.
+
+Codex + Digits forman Drenyra: un producto completo que va desde la regulación fiscal peruana hasta la experiencia del contador, con la ambición de escalar a todo LATAM.
 
 ---
 
@@ -25,6 +25,7 @@ Drenyra is the flagship product and operational command center: an inspectable w
 | **Estado** — CivicTech Peru | Civic tech open-source para Peru — transparencia y participación | Active (MVP) | Rust (Axum), Next.js, PostgreSQL |
 | **Kuse** — Kuse Cowork | Open-source desktop cowork agent (alternative to Claude Cowork) | Active (v0.0.2) | Rust + Tauri, SolidJS, Docker |
 | **Senzar** — EdgeTraz Agro | Trazabilidad agro-industrial con IA + Rust en el edge | Active (Pilot) | Rust (ESP32/RPi), TensorFlow Lite, Next.js |
+| **Solevra** — Legal Drafting Orchestrator | LDD pipeline + adversarial validation + Mnevori reasoning | Active (v0.1.0) | Bun + ElysiaJS, PostgreSQL |
 
 ---
 
@@ -57,7 +58,7 @@ Drenyra is the flagship product and operational command center: an inspectable w
 
 | Category | Repos | Description |
 |----------|-------|-------------|
-| **Core** | Arkelythex (monorepo), Drenyra | Flagship platform repos |
+| **Core** | Arkelythex (monorepo), Drenyra, Solevra | Flagship platform and products |
 | **Web** | DreamFolio, Somnyx-web, dreamcoder-web | Public-facing applications |
 | **Tools** | Somnyx-tui, codex-desktop-linux, Gentleman Guardian Angel, zeroclaw, opencode-desktop-bin | CLI, TUI, developer tooling |
 | **Config** | Dreamcoder_dots, CleanSweep | Dotfiles and system configuration |
