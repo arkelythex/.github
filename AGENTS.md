@@ -1,6 +1,6 @@
 # ARKELYTHEX GitHub Organization — Review Rules
 
-> **Última actualización**: 2026-06-29
+> **Última actualización**: 2026-07-17
 > Aplicado por Gentleman Guardian Angel (gga) en cada PR a `main`.
 > Repositorio de perfil de organización — README, community health files, templates, workflows.
 
