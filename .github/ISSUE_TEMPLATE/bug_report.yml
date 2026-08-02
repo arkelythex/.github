@@ -1,0 +1,78 @@
+# Fiscal convention: monetary values in the Drenyra ecosystem are BigInt cents;
+# no float is ever used for money; version numbers are JSON integers, never floats.
+name: Bug report
+description: Report a defect in an ARKELYTHEX repository
+title: "[bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. Fiscal paths (money math, RUC/period isolation, SUNAT, receipts, ledger) are high sensitivity — be precise.
+        Never include customer data, credentials, or real fiscal amounts in this report.
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      description: Impact of the defect.
+      options:
+        - Critical (fiscal correctness risk / blocks release)
+        - High (major functionality broken)
+        - Medium (partial functionality broken)
+        - Low (cosmetic / minor)
+    validations:
+      required: true
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component
+      description: Affected repository or area.
+      options:
+        - Drenyra
+        - drenyra-ai
+        - drenyra-pi
+        - drenyra-engram
+        - .github
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: ruc
+    attributes:
+      label: Fiscal scope — RUC (when applicable)
+      description: RUC affected by this bug, if the bug touches fiscal data.
+      placeholder: "e.g. 20123456789"
+  - type: input
+    id: period
+    attributes:
+      label: Fiscal scope — period (when applicable)
+      description: Accounting period affected, YYYY-MM, if applicable.
+      placeholder: "e.g. 2026-06"
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: Minimal, sanitized steps. For monetary behavior, state exact integer amounts (BigInt cents).
+      placeholder: "1. ... 2. ... 3. ..."
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What should happen. Monetary values are exact integers in cents.
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: What happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: env
+    attributes:
+      label: Environment versions
+      description: OS, runtime, package version, CLI version. Version numbers are JSON integers, never floats.
+      placeholder: "OS: | Node: | drenyra-ai: 0.1.0 | CLI:"

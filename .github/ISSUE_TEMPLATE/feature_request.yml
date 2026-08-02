@@ -1,0 +1,57 @@
+# Fiscal convention: monetary values in the Drenyra ecosystem are BigInt cents;
+# no float is ever used for money; version numbers are JSON integers, never floats.
+name: Feature request
+description: Propose a feature for an ARKELYTHEX repository
+title: "[feature] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for proposing. Good feature requests state the problem, the proposed behavior, and concrete acceptance criteria.
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component
+      description: Repository or area the feature belongs to.
+      options:
+        - Drenyra
+        - drenyra-ai
+        - drenyra-pi
+        - drenyra-engram
+        - .github
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What problem does this solve? Who is affected, and in which situations?
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Proposed behavior
+      description: What the feature should do. For monetary behavior, specify exact integer math in BigInt cents — no floats.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: Concrete, testable criteria. How will we know it works? Scope boundaries (what it will NOT do) are welcome.
+    validations:
+      required: true
+  - type: dropdown
+    id: fiscal_impact
+    attributes:
+      label: Fiscal impact
+      description: Does this change touch money, RUC/period isolation, SUNAT, receipts, or ledger?
+      options:
+        - None (no fiscal data changes)
+        - Indirect (no fiscal data changes, but affects fiscal-adjacent flows)
+        - Direct fiscal (money / SUNAT / receipts / ledger — requires compliance tests or conformance vectors)
+    validations:
+      required: true
