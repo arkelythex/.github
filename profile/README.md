@@ -10,47 +10,56 @@ ARKELYTHEX builds the **Drenyra Accounting Ecosystem**: a verifiable financial o
 
 ## DRENYRA ACCOUNTING ECOSYSTEM
 
-The core is four repositories with strict, explicit boundaries:
+The core is **six repositories** with strict, explicit boundaries:
 
 | Repo | Role | Type | Status |
 | --- | --- | --- | --- |
-| [Drenyra](https://github.com/arkelythex/Drenyra) | Accounting Command Center — product UI, tenants, documents, close, reconciliation, approvals, SUNAT | Product / Command Center | Active |
+| [drenyra-command-center](https://github.com/arkelythex/drenyra-command-center) | Accounting Command Center — product UI, tenants, documents, close, reconciliation, approvals, SUNAT | Product / Command Center | In development |
 | [drenyra-ai](https://github.com/arkelythex/drenyra-ai) | Verifiable Accounting Agent Ecosystem — protocol, runtime, receipts, ledger, missions, candidates, review | Runtime and protocol | Pre-alpha |
 | [drenyra-pi](https://github.com/arkelythex/drenyra-pi) | Pi-native Accounting Operations Harness — operator experience, pinned verified runtime | Pi-native harness | Pre-alpha |
 | [drenyra-engram](https://github.com/arkelythex/drenyra-engram) | Institutional Accounting Memory — scope-first memory, lifecycle, provenance | Institutional memory | Pre-alpha |
+| [drenyra-skills](https://github.com/arkelythex/drenyra-skills) | Versioned accounting, tax, and operational knowledge — content layer (content ≠ runtime) | Knowledge | In development |
+| [drenyra-guardian-angel](https://github.com/arkelythex/drenyra-guardian-angel) | Independent adversarial verification — refutation, dual review, evidence checks | Verification | In development |
 
-```text
-                    ┌───────────────────┐
-                    │ Drenyra-Engram    │  Institutional Accounting Memory
-                    └─────────▲─────────┘  (independent; memory never authorizes)
-                              │
-                ┌─────────────┴─────────────┐
-                │                           │
-       ┌────────┴────────┐        ┌─────────┴─────────┐
-       │ Drenyra-AI      │        │ Drenyra-Pi       │  Pi-native harness
-       │ Agent Ecosystem │◄───────│ (installs + pins │
-       └────────▲────────┘        │  drenyra-ai)     │
-                │                 └───────────────────┘
-       ┌────────┴────────┐
-       │ Drenyra         │  Accounting Command Center
-       └─────────────────┘
-```
+    ```text
+                            ┌───────────────────────┐
+                            │ Drenyra-Engram        │  Institutional memory
+                            └───────────▲───────────┘  (informs, never authorizes)
+                                        │
+                       ┌────────────────┴────────────────┐
+                       │                                 │
+              ┌────────┴────────┐              ┌──────────┴─────────┐
+              │ Drenyra-AI      │              │ Drenyra-Pi         │  Pi-native
+              │ Verifiable core │◄─────────────│ (pins drenyra-ai)  │  harness
+              └───────▲─────────┘              └────────────────────┘
+                      │
+              ┌───────┴─────────┐
+              │ Drenyra Command │  Command Center — web + API + TUI
+              │ Center          │  (consumes drenyra-ai contracts)
+              └─────────────────┘
+
+      Drenyra-Skills          → versioned accounting/tax knowledge (content layer)
+      Drenyra-Guardian-Angel  → independent adversarial verification (consumes contracts)
+    ```
 
 ### Dependency direction
 
-- `Drenyra` consumes released, versioned `drenyra-ai`; uses `drenyra-engram` for context.
+- `drenyra-command-center` consumes released, versioned `drenyra-ai`; uses `drenyra-engram` for context.
 - `drenyra-pi` consumes a **pinned, package-local, checksum-verified** `drenyra-ai` (never `PATH`); uses `drenyra-engram`.
-- `drenyra-ai` never depends on Drenyra or Drenyra Pi, and never knows Drenyra Pi exists.
+- `drenyra-ai` never depends on the Command Center or Pi, and never knows Drenyra Pi exists.
 - `drenyra-engram` is independent — it informs, it never authorizes.
+- `drenyra-skills` is content (versioned knowledge), not code — the `drenyra-ai` runtime validates and agents consume it.
+- `drenyra-guardian-angel` verifies against the frozen `drenyra-ai` contracts — never the author of what it reviews.
 
 ### Authority model
 
 ```text
-Drenyra database          → transactional truth
-Drenyra Engram            → institutional memory (guides, never authorizes)
-Drenyra AI receipts+ledger → execution proof (Ed25519-signed, append-only)
-Drenyra Pi                → operator experience
-Human accountant          → final authority
+Drenyra database           → transactional truth
+Drenyra Engram             → institutional memory (guides, never authorizes)
+Drenyra AI receipts+ledger  → execution proof (Ed25519-signed, append-only)
+Drenyra Guardian Angel     → independent adversarial verification (never the author)
+Drenyra Pi                 → operator experience
+Human accountant           → final authority
 ```
 
 ### Principles
@@ -73,7 +82,7 @@ Human accountant          → final authority
 | [admin](https://github.com/arkelythex/admin) | Internal tools and administrative infrastructure | Maintenance / review |
 | [elect-validate](https://github.com/arkelythex/elect-validate) | Electoral act validation suite for Peru's ONPE (Go, CLI, web) | Maintenance / review |
 
-Future verticals (industrial operations, public sector, edge) are planned but have no public repositories yet — they will land as clearly-identified repos, never mixed into `Drenyra`.
+Future verticals (industrial operations, public sector, edge) are planned but have no public repositories yet — they will land as clearly-identified repos, never mixed into `drenyra-command-center`.
 
 ---
 
@@ -86,4 +95,4 @@ Future verticals (industrial operations, public sector, edge) are planned but ha
 
 ---
 
-*The four Drenyra repositories are the current public core. Everything else on this page is auxiliary or in transition.*
+*The six Drenyra repositories define the current production architecture. Some production repositories may remain private while public contracts, specifications, threat models, and reference slices are released progressively. Everything else on this page is auxiliary or in transition.*
