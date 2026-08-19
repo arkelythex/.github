@@ -15,9 +15,9 @@ The core is **six repositories** with strict, explicit boundaries:
 | Repo | Role | Type | Status |
 | --- | --- | --- | --- |
 | [drenyra-command-center](https://github.com/arkelythex/drenyra-command-center) | Accounting Command Center — product UI, tenants, documents, close, reconciliation, approvals, SUNAT | Product / Command Center | In development |
-| [drenyra-ai](https://github.com/arkelythex/drenyra-ai) | Verifiable Accounting Agent Ecosystem — protocol, runtime, receipts, ledger, missions, candidates, review | Runtime and protocol | Pre-alpha |
+| [drenyra-ai](https://github.com/arkelythex/drenyra-ai) | Verifiable Accounting Agent Ecosystem — protocol, runtime, receipts, ledger, missions, candidates, review | Runtime and protocol | Alpha (v0.5.0) |
 | [drenyra-pi](https://github.com/arkelythex/drenyra-pi) | Pi-native Accounting Operations Harness — operator experience, pinned verified runtime | Pi-native harness | Pre-alpha |
-| [drenyra-engram](https://github.com/arkelythex/drenyra-engram) | Institutional Accounting Memory — scope-first memory, lifecycle, provenance | Institutional memory | Pre-alpha |
+| [drenyra-engram](https://github.com/arkelythex/drenyra-engram) | Institutional Accounting Memory — scope-first memory, lifecycle, provenance | Institutional memory | Alpha (v0.6.0) |
 | [drenyra-skills](https://github.com/arkelythex/drenyra-skills) | Versioned accounting, tax, and operational knowledge — content layer (content ≠ runtime) | Knowledge | In development |
 | [drenyra-guardian-angel](https://github.com/arkelythex/drenyra-guardian-angel) | Independent adversarial verification — refutation, dual review, evidence checks | Verification | In development |
 
@@ -88,9 +88,9 @@ Future verticals (industrial operations, public sector, edge) are planned but ha
 
 ## Current priorities — Q3 2026
 
-1. **Drenyra AI industrialization** — finish gates + recovery, freeze first contracts (`0.1.0`), release with provenance (SHA-256 manifest, SBOM, signed tag).
-2. **Drenyra Pi harness** — packed verification, private Drenyra AI installer, `/drenyra:status` + `/drenyra:doctor` end-to-end.
-3. **Drenyra Engram engine** — freeze strategy (neutral contracts, in-memory reference, PostgreSQL authority), build + packaging.
+1. **Drenyra AI ecosystem maturity** — Phases 2c (hybrid orchestration) + 3 are current; expose `agents/` as a package subpath, keep releasing with provenance (SHA-256 manifest, SBOM, signed tag) and drive toward **v1.0**.
+2. **Drenyra Engram engine** — deliver Evidence Objects (v0.7.0), Evidence Lifecycle (v0.8.0), and Review Workspace (v0.9.0); freeze strategy on neutral contracts + PostgreSQL authority.
+3. **Drenyra Pi harness** — land runtime pin 0.3.0 (fiscal harness extraction complete), `/drenyra:status` + `/drenyra:doctor` end-to-end.
 4. **Drenyra scope discipline** — no new non-accounting verticals enter the product repo; progressive retirement of foreign folders.
 
 ---
