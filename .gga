@@ -1,8 +1,8 @@
 # Gentleman Guardian Angel Configuration
-# Generado para arkelythex/.github (repositorio público de organización)
+# Generated for arkelythex/.github (public organization repository)
 
-# Provider: DeepSeek V4 Flash via API directa
-PROVIDER="deepseek:deepseek-chat"
+# Provider: OpenAI Codex CLI using the authenticated local Codex session
+PROVIDER="codex"
 
 # File patterns to review (all files in org repo)
 FILE_PATTERNS="*"
