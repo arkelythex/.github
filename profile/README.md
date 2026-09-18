@@ -21,8 +21,8 @@ The core is **six repositories** with strict, explicit boundaries:
 | [drenyra-skills](https://github.com/arkelythex/drenyra-skills)         | Versioned accounting, tax, and operational knowledge — content layer (content ≠ runtime)         | Knowledge             | In development  |
 | [drenyra-guardian-angel](https://github.com/arkelythex/drenyra-guardian-angel) | Independent adversarial verification — refutation, dual review, evidence checks                  | Verification          | In development  |
 
-![Drenyra Accounting Ecosystem](docs/diagrams/drenyra-ecosystem.architecture.light.svg#gh-light-mode-only)
-![Drenyra Accounting Ecosystem](docs/diagrams/drenyra-ecosystem.architecture.dark.svg#gh-dark-mode-only)
+![Drenyra Accounting Ecosystem](../docs/diagrams/drenyra-ecosystem.architecture.light.svg#gh-light-mode-only)
+![Drenyra Accounting Ecosystem](../docs/diagrams/drenyra-ecosystem.architecture.dark.svg#gh-dark-mode-only)
 
 *Open the [interactive version](https://arkelythex.github.io/.github/drenyra-ecosystem.architecture.html) for pan, zoom, focus, and relationship tracing.*
 
@@ -39,8 +39,8 @@ The core is **six repositories** with strict, explicit boundaries:
 
 A fiscal close is proposed by the runtime, authorized by a human, committed to PostgreSQL, and proved by a signed receipt that an independent verifier re-reads.
 
-![Fiscal close: candidate to signed receipt](docs/diagrams/fiscal-close.sequence.light.svg#gh-light-mode-only)
-![Fiscal close: candidate to signed receipt](docs/diagrams/fiscal-close.sequence.dark.svg#gh-dark-mode-only)
+![Fiscal close: candidate to signed receipt](../docs/diagrams/fiscal-close.sequence.light.svg#gh-light-mode-only)
+![Fiscal close: candidate to signed receipt](../docs/diagrams/fiscal-close.sequence.dark.svg#gh-dark-mode-only)
 
 *Open the [interactive version](https://arkelythex.github.io/.github/fiscal-close.sequence.html).*
 
@@ -57,8 +57,8 @@ Human accountant           → final authority
 
 Every committed action carries its own evidence from the moment it is extracted.
 
-![Evidence pipeline](docs/diagrams/evidence-pipeline.dataflow.light.svg#gh-light-mode-only)
-![Evidence pipeline](docs/diagrams/evidence-pipeline.dataflow.dark.svg#gh-dark-mode-only)
+![Evidence pipeline](../docs/diagrams/evidence-pipeline.dataflow.light.svg#gh-light-mode-only)
+![Evidence pipeline](../docs/diagrams/evidence-pipeline.dataflow.dark.svg#gh-dark-mode-only)
 
 *Open the [interactive version](https://arkelythex.github.io/.github/evidence-pipeline.dataflow.html).*
 
@@ -77,8 +77,8 @@ Every committed action carries its own evidence from the moment it is extracted.
 
 Every ARKELYTHEX product is built on the same five layers. Each layer abstracts one concern and can operate independently; a higher layer is enabled by the one beneath it, never by skipping one.
 
-![ARKELYTHEX five-layer model](docs/diagrams/arkelythex-layers.architecture.light.svg#gh-light-mode-only)
-![ARKELYTHEX five-layer model](docs/diagrams/arkelythex-layers.architecture.dark.svg#gh-dark-mode-only)
+![ARKELYTHEX five-layer model](../docs/diagrams/arkelythex-layers.architecture.light.svg#gh-light-mode-only)
+![ARKELYTHEX five-layer model](../docs/diagrams/arkelythex-layers.architecture.dark.svg#gh-dark-mode-only)
 
 *Open the [interactive version](https://arkelythex.github.io/.github/arkelythex-layers.architecture.html).*
 
