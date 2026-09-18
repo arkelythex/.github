@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ARKELYTHEX — Architecture Diagrams</title>
+    <meta
+      name="description"
+      content="Interactive architecture, sequence and data-flow diagrams for the ARKELYTHEX Drenyra accounting ecosystem."
+    />
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #020617;
+        --panel: rgba(15, 23, 42, 0.6);
+        --border: #1e293b;
+        --text: #e2e8f0;
+        --muted: #94a3b8;
+        --accent: #34d399;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding: 4rem 1.5rem;
+        background:
+          radial-gradient(60rem 40rem at 15% -10%, rgba(52, 211, 153, 0.08), transparent 60%),
+          var(--bg);
+        color: var(--text);
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        line-height: 1.6;
+      }
+      main {
+        max-width: 68rem;
+        margin: 0 auto;
+      }
+      h1 {
+        font-size: clamp(1.6rem, 4vw, 2.4rem);
+        margin: 0 0 0.5rem;
+        letter-spacing: -0.02em;
+      }
+      p.lede {
+        color: var(--muted);
+        margin: 0 0 3rem;
+        max-width: 46rem;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
+      }
+      a.card {
+        display: block;
+        padding: 1.25rem 1.4rem;
+        border: 1px solid var(--border);
+        border-radius: 0.85rem;
+        background: var(--panel);
+        color: inherit;
+        text-decoration: none;
+        transition:
+          border-color 0.15s ease,
+          transform 0.15s ease;
+      }
+      a.card:hover,
+      a.card:focus-visible {
+        border-color: var(--accent);
+        transform: translateY(-2px);
+        outline: none;
+      }
+      .kind {
+        color: var(--accent);
+        font-size: 0.72rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+      .title {
+        display: block;
+        margin: 0.35rem 0 0.4rem;
+        font-size: 1.02rem;
+      }
+      .note {
+        color: var(--muted);
+        font-size: 0.84rem;
+      }
+      footer {
+        margin-top: 3.5rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--border);
+        color: var(--muted);
+        font-size: 0.82rem;
+      }
+      footer a {
+        color: var(--accent);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>ARKELYTHEX Architecture Diagrams</h1>
+      <p class="lede">
+        Versioned, interactive diagrams for the Drenyra accounting ecosystem and the ARKELYTHEX
+        five-layer model. Each diagram is generated from a specification in
+        <code>docs/diagrams/</code> and rendered as a standalone artifact.
+      </p>
+
+      <ul>
+        <li>
+          <a class="card" href="drenyra-ecosystem.architecture.html">
+            <span class="kind">Architecture</span>
+            <span class="title">Drenyra Accounting Ecosystem</span>
+            <span class="note"
+              >Six repositories, their boundaries, and the authority each one holds.</span
+            >
+          </a>
+        </li>
+        <li>
+          <a class="card" href="arkelythex-layers.architecture.html">
+            <span class="kind">Architecture</span>
+            <span class="title">ARKELYTHEX Five-Layer Model</span>
+            <span class="note"
+              >Fabric, Ontology, Intelligence, Command and Edge — and where products sit.</span
+            >
+          </a>
+        </li>
+        <li>
+          <a class="card" href="fiscal-close.sequence.html">
+            <span class="kind">Sequence</span>
+            <span class="title">Fiscal Close — Candidate to Signed Receipt</span>
+            <span class="note"
+              >Proposal, human authorization, commit, and independent verification.</span
+            >
+          </a>
+        </li>
+        <li>
+          <a class="card" href="evidence-pipeline.dataflow.html">
+            <span class="kind">Data flow</span>
+            <span class="title">Evidence Pipeline</span>
+            <span class="note"
+              >From a source document to the append-only ledger and institutional memory.</span
+            >
+          </a>
+        </li>
+      </ul>
+
+      <footer>
+        Diagrams generated with <a href="https://github.com/tt-a1i/archify">Archify</a>. Sources in
+        <a href="https://github.com/arkelythex/.github/tree/main/docs/diagrams">docs/diagrams</a>.
+      </footer>
+    </main>
+  </body>
+</html>

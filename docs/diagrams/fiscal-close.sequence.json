@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "diagram_type": "sequence",
+  "meta": {
+    "title": "Fiscal Close — Candidate to Signed Receipt",
+    "quality_profile": "showcase",
+    "column_fit": "spread",
+    "views": [
+      {
+        "id": "propose",
+        "label": "Propose",
+        "focus": ["accountant", "command", "ai", "db"],
+        "note": "The runtime reads tenant-scoped records and proposes entries. Nothing is committed yet."
+      },
+      {
+        "id": "authorize",
+        "label": "Human authorization",
+        "focus": ["accountant", "command", "ai"],
+        "note": "A human authorizes. Approval tiers can require two distinct people."
+      },
+      {
+        "id": "verify",
+        "label": "Independent verification",
+        "focus": ["ai", "ledger", "guardian"],
+        "note": "The receipt is signed and appended, then read back by a party that is not its author."
+      }
+    ]
+  },
+  "participants": [
+    { "id": "accountant", "type": "external", "label": "Human Accountant", "sublabel": "final authority" },
+    { "id": "command", "type": "frontend", "label": "Command Center", "sublabel": "operator surface" },
+    { "id": "ai", "type": "backend", "label": "Drenyra AI", "sublabel": "protocol + runtime" },
+    { "id": "db", "type": "database", "label": "Accounting DB", "sublabel": "transactional truth" },
+    { "id": "ledger", "type": "database", "label": "Audit Ledger", "sublabel": "append-only" },
+    { "id": "guardian", "type": "security", "label": "Guardian Angel", "sublabel": "independent verifier" }
+  ],
+  "segments": [
+    { "from": 150, "to": 330, "label": "Propose" },
+    { "from": 338, "to": 448, "label": "Authorize" },
+    { "from": 456, "to": 522, "label": "Commit and prove" },
+    { "from": 530, "to": 700, "label": "Verify independently" }
+  ],
+  "messages": [
+    { "from": "accountant", "to": "command", "y": 168, "label": "open period close", "variant": "emphasis" },
+    { "from": "command", "to": "ai", "y": 206, "label": "request close candidate", "variant": "emphasis" },
+    { "from": "ai", "to": "db", "y": 244, "label": "read tenant-scoped records" },
+    { "from": "db", "to": "ai", "y": 282, "label": "records + period state", "variant": "return" },
+    { "from": "ai", "to": "command", "y": 320, "label": "proposed entries + receipt", "variant": "emphasis" },
+    { "from": "command", "to": "accountant", "y": 358, "label": "approval request · dual tier", "variant": "security" },
+    { "from": "accountant", "to": "command", "y": 396, "label": "authorize", "variant": "emphasis" },
+    { "from": "command", "to": "ai", "y": 434, "label": "execute authorized close", "variant": "emphasis" },
+    { "from": "ai", "to": "db", "y": 472, "label": "commit entries", "variant": "emphasis" },
+    { "from": "ai", "to": "ledger", "y": 510, "label": "append signed receipt", "variant": "emphasis" },
+    { "from": "ai", "to": "guardian", "y": 548, "label": "verification request", "variant": "security" },
+    { "from": "guardian", "to": "ledger", "y": 586, "label": "read frozen receipt", "variant": "dashed" },
+    { "from": "guardian", "to": "ai", "y": 624, "label": "verdict", "variant": "return" },
+    { "from": "ai", "to": "command", "y": 662, "label": "close complete", "variant": "return" }
+  ],
+  "activations": [
+    { "participant": "command", "from": 162, "to": 330, "type": "frontend" },
+    { "participant": "ai", "from": 200, "to": 330, "type": "backend" },
+    { "participant": "db", "from": 238, "to": 290, "type": "database" },
+    { "participant": "accountant", "from": 352, "to": 402, "type": "external" },
+    { "participant": "command", "from": 352, "to": 444, "type": "frontend" },
+    { "participant": "ai", "from": 428, "to": 518, "type": "backend" },
+    { "participant": "db", "from": 466, "to": 480, "type": "database" },
+    { "participant": "ledger", "from": 504, "to": 594, "type": "database" },
+    { "participant": "guardian", "from": 542, "to": 630, "type": "security" },
+    { "participant": "ai", "from": 618, "to": 668, "type": "backend" },
+    { "participant": "command", "from": 656, "to": 668, "type": "frontend" }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "The runtime proposes, never decides",
+      "items": [
+        "Drenyra AI reads tenant-scoped records and builds a candidate close",
+        "Nothing reaches PostgreSQL until a human authorizes it",
+        "Approval tiers are single or dual, and the tier is part of the contract"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "What the receipt proves",
+      "items": [
+        "Every committed action appends an Ed25519-signed receipt",
+        "The ledger is append-only, so proof cannot be rewritten",
+        "Money is integer math: the committed cents are the receipt's cents"
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Verification is independent",
+      "items": [
+        "Guardian Angel reads frozen receipt bytes, not live state",
+        "It is never the author of what it reviews",
+        "A challenged receipt is a finding, not a silent overwrite"
+      ]
+    }
+  ]
+}

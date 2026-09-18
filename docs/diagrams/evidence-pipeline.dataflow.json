@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "diagram_type": "dataflow",
+  "meta": {
+    "title": "Evidence Pipeline — From Document to Institutional Memory",
+    "quality_profile": "showcase",
+    "views": [
+      {
+        "id": "main-transit",
+        "label": "Main transit",
+        "focus": ["intake", "extraction", "candidate", "db", "command"],
+        "note": "A source document becomes structured facts, then a committed entry an operator can see."
+      },
+      {
+        "id": "proof-layer",
+        "label": "The proof layer",
+        "focus": ["candidate", "receipt", "ledger", "guardian"],
+        "note": "The same action is frozen as a signed receipt and independently re-read."
+      },
+      {
+        "id": "consumers",
+        "label": "Consumers",
+        "focus": ["ledger", "engram", "db", "command"],
+        "note": "Operators read current state; institutional memory reads durable history."
+      }
+    ]
+  },
+  "stages": [
+    { "label": "Capture and extract" },
+    { "label": "Propose" },
+    { "label": "Commit" },
+    { "label": "Verify and consume" }
+  ],
+  "nodes": [
+    { "id": "intake", "type": "external", "label": "Document Intake", "sublabel": "invoices, contracts, proofs", "stage": 0, "row": 0, "tag": "untrusted" },
+    { "id": "extraction", "type": "backend", "label": "Agent Extraction", "sublabel": "parse and structure", "stage": 0, "row": 2, "tag": "proposes only" },
+    { "id": "candidate", "type": "backend", "label": "Fiscal Candidate", "sublabel": "entry plus its evidence", "stage": 1, "row": 0, "tag": "reviewable" },
+    { "id": "receipt", "type": "security", "label": "RDA Receipt", "sublabel": "Ed25519 signed", "stage": 1, "row": 2, "tag": "frozen" },
+    { "id": "db", "type": "database", "label": "Accounting DB", "sublabel": "tenant-isolated", "stage": 2, "row": 0, "tag": "transactional truth" },
+    { "id": "ledger", "type": "database", "label": "Audit Ledger", "sublabel": "append-only", "stage": 2, "row": 2, "tag": "immutable" },
+    { "id": "command", "type": "frontend", "label": "Command Center", "sublabel": "operator view", "stage": 3, "row": 0, "tag": "human surface" },
+    { "id": "guardian", "type": "security", "label": "Guardian Angel", "sublabel": "adversarial check", "stage": 3, "row": 1, "tag": "not the author" },
+    { "id": "engram", "type": "database", "label": "Drenyra Engram", "sublabel": "institutional memory", "stage": 3, "row": 3, "tag": "informs only" }
+  ],
+  "flows": [
+    { "from": "intake", "to": "extraction", "label": "source documents", "classification": "untrusted input", "variant": "emphasis", "route": "straight", "fromSide": "bottom", "toSide": "top", "labelAt": [100, 210] },
+    { "from": "extraction", "to": "candidate", "label": "structured facts", "classification": "proposal", "variant": "emphasis" },
+    { "from": "candidate", "to": "receipt", "label": "freeze evidence", "classification": "signed", "variant": "emphasis", "route": "straight", "fromSide": "bottom", "toSide": "top", "labelAt": [315, 210] },
+    { "from": "candidate", "to": "db", "label": "committed entry", "classification": "after approval", "variant": "emphasis" },
+    { "from": "receipt", "to": "ledger", "label": "append", "classification": "immutable", "variant": "emphasis" },
+    { "from": "db", "to": "command", "label": "current state", "classification": "tenant-scoped", "variant": "default", "route": "straight" },
+    { "from": "ledger", "to": "guardian", "label": "frozen receipt bytes", "classification": "read-only", "variant": "security" },
+    { "from": "guardian", "to": "command", "label": "verdict or challenge", "classification": "advisory", "variant": "security", "labelAt": [745, 214] },
+    { "from": "ledger", "to": "engram", "label": "durable history", "classification": "non-authoritative", "variant": "dashed" }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Two records, one truth",
+      "items": [
+        "PostgreSQL holds current transactional truth, isolated per tenant",
+        "The append-only ledger holds immutable proof of how it got there",
+        "Neither is derived from the other; both come from the same authorized action"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Evidence is produced, not written later",
+      "items": [
+        "A candidate carries its own evidence from extraction onward",
+        "The receipt is signed at commit time, never reconstructed afterwards",
+        "Scope is structural: company, RUC and period are part of every read"
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Verification has a separate owner",
+      "items": [
+        "Guardian Angel reads frozen bytes and can only advise or challenge",
+        "It cannot rewrite the ledger or the database",
+        "Disagreement is a recorded finding that a human resolves"
+      ]
+    },
+    {
+      "dot": "violet",
+      "title": "Memory informs, it never authorizes",
+      "items": [
+        "Drenyra Engram stores durable institutional history and provenance",
+        "The Command Center reads that context when an operator asks for it",
+        "It can never approve, commit or override a fiscal action"
+      ]
+    }
+  ]
+}
