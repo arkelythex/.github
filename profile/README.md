@@ -115,4 +115,4 @@ Future verticals (industrial operations, public sector, edge) are planned but ha
 
 *The six Drenyra repositories are public and define the current production architecture. Other production repositories may remain private while public contracts, specifications, threat models, and reference slices are released progressively. Everything else on this page is auxiliary or in transition.*
 
-*All architecture diagrams on this page are generated with [Archify](https://github.com/tt-a1i/archify) from versioned specifications in [`docs/diagrams`](./docs/diagrams).*
+*All architecture diagrams on this page are generated with [Archify](https://github.com/tt-a1i/archify) from versioned specifications in [`docs/diagrams`](../docs/diagrams).*
