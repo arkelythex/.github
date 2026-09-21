@@ -27,52 +27,52 @@
   },
   "components": [
     {
-      "id": "edge",
-      "type": "cloud",
-      "label": "Layer 5 · Edge",
-      "sublabel": "devices, sensors, drone inspection, offline operation",
-      "pos": [80, 96],
-      "size": [600, 76]
-    },
-    {
-      "id": "command",
-      "type": "frontend",
-      "label": "Layer 4 · Command",
-      "sublabel": "missions, approvals, incidents, human oversight",
-      "pos": [80, 236],
-      "size": [600, 76]
-    },
-    {
-      "id": "intelligence",
-      "type": "backend",
-      "label": "Layer 3 · Intelligence",
-      "sublabel": "agents, reasoning, document extraction, planning",
-      "pos": [80, 376],
-      "size": [600, 76]
+      "id": "fabric",
+      "type": "security",
+      "label": "Layer 1 · Fabric",
+      "sublabel": "identity, tenancy, audit",
+      "pos": [40, 140],
+      "size": [190, 120]
     },
     {
       "id": "ontology",
       "type": "database",
       "label": "Layer 2 · Ontology",
-      "sublabel": "objects, relations, states, actions, policies",
-      "pos": [80, 516],
-      "size": [600, 76]
+      "sublabel": "objects, states, policies",
+      "pos": [300, 140],
+      "size": [190, 120]
     },
     {
-      "id": "fabric",
-      "type": "security",
-      "label": "Layer 1 · Fabric",
-      "sublabel": "identity, tenancy, events, documents, audit",
-      "pos": [80, 656],
-      "size": [600, 76]
+      "id": "intelligence",
+      "type": "backend",
+      "label": "Layer 3 · Intelligence",
+      "sublabel": "reasoning, extraction",
+      "pos": [560, 140],
+      "size": [190, 120]
+    },
+    {
+      "id": "command",
+      "type": "frontend",
+      "label": "Layer 4 · Command",
+      "sublabel": "approvals, human oversight",
+      "pos": [820, 140],
+      "size": [190, 120]
+    },
+    {
+      "id": "edge",
+      "type": "cloud",
+      "label": "Layer 5 · Edge",
+      "sublabel": "sensors, offline operation",
+      "pos": [1080, 140],
+      "size": [190, 120]
     }
   ],
   "boundaries": [
     {
       "kind": "region",
       "label": "Where Drenyra and Elvyra operate today",
-      "wraps": ["command", "intelligence", "ontology", "fabric"],
-      "pad": 34
+      "wraps": ["fabric", "ontology", "intelligence", "command"],
+      "pad": 30
     }
   ],
   "connections": [
@@ -82,9 +82,8 @@
       "to": "ontology",
       "label": "enables",
       "variant": "emphasis",
-      "fromSide": "top",
-      "toSide": "bottom",
-      "labelAt": [380, 618]
+      "fromSide": "right",
+      "toSide": "left"
     },
     {
       "id": "ontology-enables-intelligence",
@@ -92,9 +91,8 @@
       "to": "intelligence",
       "label": "enables",
       "variant": "emphasis",
-      "fromSide": "top",
-      "toSide": "bottom",
-      "labelAt": [380, 478]
+      "fromSide": "right",
+      "toSide": "left"
     },
     {
       "id": "intelligence-enables-command",
@@ -102,9 +100,8 @@
       "to": "command",
       "label": "enables",
       "variant": "emphasis",
-      "fromSide": "top",
-      "toSide": "bottom",
-      "labelAt": [380, 338]
+      "fromSide": "right",
+      "toSide": "left"
     },
     {
       "id": "command-enables-edge",
@@ -112,9 +109,8 @@
       "to": "edge",
       "label": "enables",
       "variant": "dashed",
-      "fromSide": "top",
-      "toSide": "bottom",
-      "labelAt": [380, 198]
+      "fromSide": "right",
+      "toSide": "left"
     }
   ],
   "cards": [
@@ -123,8 +119,7 @@
       "title": "How the stack builds",
       "items": [
         "Each layer abstracts one concern and can operate independently",
-        "A higher layer is enabled by the layer beneath it, never by skipping one",
-        "Layer 1 is shared infrastructure: every product uses the same Fabric"
+        "A higher layer is enabled by the layer beneath it, never by skipping one"
       ]
     },
     {
@@ -132,7 +127,6 @@
       "title": "Intelligence scaling rule",
       "items": [
         "Deterministic rules first, then small specialized models",
-        "General models only when the cheaper rungs fail",
         "A human expert remains the top rung, never the first resort"
       ]
     },
@@ -141,8 +135,7 @@
       "title": "Command is the human layer",
       "items": [
         "Missions, approvals, incidents and override live here",
-        "AI assists and prepares; a human authorizes; the system executes",
-        "The operating cycle is observe, understand, decide, authorize, execute, verify, learn"
+        "AI assists and prepares; a human authorizes; the system executes"
       ]
     },
     {
@@ -150,7 +143,6 @@
       "title": "Edge comes last",
       "items": [
         "Physical devices land only after layers 1 to 4 are mature",
-        "Designed for offline operation, deferred sync and on-device inference",
         "Today Drenyra and Elvyra stop at Command; edge is the next vertical"
       ]
     }

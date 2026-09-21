@@ -5,6 +5,7 @@
     "title": "Fiscal Close — Candidate to Signed Receipt",
     "quality_profile": "showcase",
     "column_fit": "spread",
+    "viewBox": [1050, 630],
     "views": [
       {
         "id": "propose",
@@ -35,67 +36,38 @@
     { "id": "guardian", "type": "security", "label": "Guardian Angel", "sublabel": "independent verifier" }
   ],
   "segments": [
-    { "from": 150, "to": 330, "label": "Propose" },
-    { "from": 338, "to": 448, "label": "Authorize" },
-    { "from": 456, "to": 522, "label": "Commit and prove" },
-    { "from": 530, "to": 700, "label": "Verify independently" }
+    { "from": 147, "to": 279, "label": "Propose" },
+    { "from": 285, "to": 366, "label": "Authorize" },
+    { "from": 372, "to": 421, "label": "Commit and prove" },
+    { "from": 427, "to": 552, "label": "Verify independently" }
   ],
   "messages": [
-    { "from": "accountant", "to": "command", "y": 168, "label": "open period close", "variant": "emphasis" },
-    { "from": "command", "to": "ai", "y": 206, "label": "request close candidate", "variant": "emphasis" },
-    { "from": "ai", "to": "db", "y": 244, "label": "read tenant-scoped records" },
-    { "from": "db", "to": "ai", "y": 282, "label": "records + period state", "variant": "return" },
-    { "from": "ai", "to": "command", "y": 320, "label": "proposed entries + receipt", "variant": "emphasis" },
-    { "from": "command", "to": "accountant", "y": 358, "label": "approval request · dual tier", "variant": "security" },
-    { "from": "accountant", "to": "command", "y": 396, "label": "authorize", "variant": "emphasis" },
-    { "from": "command", "to": "ai", "y": 434, "label": "execute authorized close", "variant": "emphasis" },
-    { "from": "ai", "to": "db", "y": 472, "label": "commit entries", "variant": "emphasis" },
-    { "from": "ai", "to": "ledger", "y": 510, "label": "append signed receipt", "variant": "emphasis" },
-    { "from": "ai", "to": "guardian", "y": 548, "label": "verification request", "variant": "security" },
-    { "from": "guardian", "to": "ledger", "y": 586, "label": "read frozen receipt", "variant": "dashed" },
-    { "from": "guardian", "to": "ai", "y": 624, "label": "verdict", "variant": "return" },
-    { "from": "ai", "to": "command", "y": 662, "label": "close complete", "variant": "return" }
+    { "from": "accountant", "to": "command", "y": 160, "label": "open period close", "variant": "emphasis" },
+    { "from": "command", "to": "ai", "y": 188, "label": "request close candidate", "variant": "emphasis" },
+    { "from": "ai", "to": "db", "y": 216, "label": "read tenant-scoped records" },
+    { "from": "db", "to": "ai", "y": 244, "label": "records + period state", "variant": "return" },
+    { "from": "ai", "to": "command", "y": 272, "label": "proposed entries + receipt", "variant": "emphasis" },
+    { "from": "command", "to": "accountant", "y": 300, "label": "approval request · dual tier", "variant": "security" },
+    { "from": "accountant", "to": "command", "y": 328, "label": "authorize", "variant": "emphasis" },
+    { "from": "command", "to": "ai", "y": 356, "label": "execute authorized close", "variant": "emphasis" },
+    { "from": "ai", "to": "db", "y": 384, "label": "commit entries", "variant": "emphasis" },
+    { "from": "ai", "to": "ledger", "y": 412, "label": "append signed receipt", "variant": "emphasis" },
+    { "from": "ai", "to": "guardian", "y": 440, "label": "verification request", "variant": "security" },
+    { "from": "guardian", "to": "ledger", "y": 468, "label": "read frozen receipt", "variant": "dashed" },
+    { "from": "guardian", "to": "ai", "y": 496, "label": "verdict", "variant": "return" },
+    { "from": "ai", "to": "command", "y": 524, "label": "close complete", "variant": "return" }
   ],
   "activations": [
-    { "participant": "command", "from": 162, "to": 330, "type": "frontend" },
-    { "participant": "ai", "from": 200, "to": 330, "type": "backend" },
-    { "participant": "db", "from": 238, "to": 290, "type": "database" },
-    { "participant": "accountant", "from": 352, "to": 402, "type": "external" },
-    { "participant": "command", "from": 352, "to": 444, "type": "frontend" },
-    { "participant": "ai", "from": 428, "to": 518, "type": "backend" },
-    { "participant": "db", "from": 466, "to": 480, "type": "database" },
-    { "participant": "ledger", "from": 504, "to": 594, "type": "database" },
-    { "participant": "guardian", "from": 542, "to": 630, "type": "security" },
-    { "participant": "ai", "from": 618, "to": 668, "type": "backend" },
-    { "participant": "command", "from": 656, "to": 668, "type": "frontend" }
-  ],
-  "cards": [
-    {
-      "dot": "cyan",
-      "title": "The runtime proposes, never decides",
-      "items": [
-        "Drenyra AI reads tenant-scoped records and builds a candidate close",
-        "Nothing reaches PostgreSQL until a human authorizes it",
-        "Approval tiers are single or dual, and the tier is part of the contract"
-      ]
-    },
-    {
-      "dot": "emerald",
-      "title": "What the receipt proves",
-      "items": [
-        "Every committed action appends an Ed25519-signed receipt",
-        "The ledger is append-only, so proof cannot be rewritten",
-        "Money is integer math: the committed cents are the receipt's cents"
-      ]
-    },
-    {
-      "dot": "rose",
-      "title": "Verification is independent",
-      "items": [
-        "Guardian Angel reads frozen receipt bytes, not live state",
-        "It is never the author of what it reviews",
-        "A challenged receipt is a finding, not a silent overwrite"
-      ]
-    }
+    { "participant": "command", "from": 156, "to": 279, "type": "frontend" },
+    { "participant": "ai", "from": 184, "to": 279, "type": "backend" },
+    { "participant": "db", "from": 212, "to": 250, "type": "database" },
+    { "participant": "accountant", "from": 296, "to": 337, "type": "external" },
+    { "participant": "command", "from": 296, "to": 363, "type": "frontend" },
+    { "participant": "ai", "from": 352, "to": 418, "type": "backend" },
+    { "participant": "db", "from": 380, "to": 390, "type": "database" },
+    { "participant": "ledger", "from": 408, "to": 474, "type": "database" },
+    { "participant": "guardian", "from": 436, "to": 500, "type": "security" },
+    { "participant": "ai", "from": 492, "to": 528, "type": "backend" },
+    { "participant": "command", "from": 520, "to": 528, "type": "frontend" }
   ]
 }

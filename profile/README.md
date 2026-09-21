@@ -53,6 +53,10 @@ Drenyra Pi                 → operator experience
 Human accountant           → final authority
 ```
 
+- The runtime proposes, never decides: Drenyra AI reads tenant-scoped records and builds a candidate close, and nothing reaches PostgreSQL until a human authorizes it.
+- What the receipt proves: every committed action appends an Ed25519-signed receipt, and money is integer math — the committed cents are the receipt's cents.
+- Verification is independent: Guardian Angel reads frozen receipt bytes, not live state, and a challenged receipt is a finding, never a silent overwrite.
+
 ### Evidence pipeline
 
 Every committed action carries its own evidence from the moment it is extracted.
@@ -61,6 +65,11 @@ Every committed action carries its own evidence from the moment it is extracted.
 ![Evidence pipeline](../docs/diagrams/evidence-pipeline.dataflow.dark.svg#gh-dark-mode-only)
 
 *Open the [interactive version](https://arkelythex.github.io/.github/evidence-pipeline.dataflow.html).*
+
+- Two records, one truth: PostgreSQL holds current transactional truth, isolated per tenant, and the append-only ledger holds immutable proof of how it got there.
+- Evidence is produced, not written later: a candidate carries its own evidence from extraction onward, and the receipt is signed at commit time, never reconstructed afterwards.
+- Verification has a separate owner: Guardian Angel reads frozen bytes and can only advise or challenge; disagreement is a recorded finding that a human resolves.
+- Memory informs, it never authorizes: Drenyra Engram stores durable institutional history and provenance, and can never approve, commit or override a fiscal action.
 
 ### Principles
 

@@ -66,7 +66,7 @@
       "type": "database",
       "label": "Drenyra Engram",
       "sublabel": "institutional memory",
-      "pos": [280, 120],
+      "pos": [280, 190],
       "size": [200, 66],
       "tag": "Alpha v0.2.1"
     },
@@ -75,7 +75,7 @@
       "type": "external",
       "label": "Drenyra Skills",
       "sublabel": "versioned tax knowledge",
-      "pos": [680, 120],
+      "pos": [680, 190],
       "size": [200, 66],
       "tag": "content layer"
     },
@@ -84,7 +84,7 @@
       "type": "backend",
       "label": "Drenyra Pi",
       "sublabel": "Pi-native harness",
-      "pos": [680, 560],
+      "pos": [680, 450],
       "size": [200, 66],
       "tag": "Pre-alpha"
     },
@@ -93,7 +93,7 @@
       "type": "security",
       "label": "Drenyra Guardian Angel",
       "sublabel": "independent verification",
-      "pos": [1020, 560],
+      "pos": [1020, 450],
       "size": [200, 66],
       "tag": "In development"
     }
@@ -126,7 +126,7 @@
       "variant": "dashed",
       "fromSide": "bottom",
       "toSide": "top",
-      "labelAt": [380, 230]
+      "labelAt": [380, 285]
     },
     {
       "id": "skills-feed-ai",
@@ -136,7 +136,7 @@
       "variant": "dashed",
       "fromSide": "bottom",
       "toSide": "top",
-      "labelAt": [780, 230]
+      "labelAt": [780, 285]
     },
     {
       "id": "pi-pins-ai",
@@ -162,7 +162,6 @@
       "title": "Command and operator experience",
       "items": [
         "Command Center consumes released, versioned drenyra-ai",
-        "Drenyra Pi pins a package-local, checksum-verified runtime",
         "Humans authorize; agents prepare and never decide"
       ]
     },
@@ -171,7 +170,6 @@
       "title": "Verifiable core",
       "items": [
         "Receipts and an append-only ledger prove execution",
-        "Money is integer math, never floats",
         "PostgreSQL holds transactional truth, tenant-isolated"
       ]
     },

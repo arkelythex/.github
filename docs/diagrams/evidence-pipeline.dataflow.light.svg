@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="0 0 940 720" role="img" lang="en" aria-labelledby="archify-diagram-title archify-diagram-description" data-preset="classic" data-quality-profile="showcase" style="" width="940" height="720" xmlns="http://www.w3.org/2000/svg" data-theme="light"><style>
+<svg viewBox="0 0 980 495" role="img" lang="en" aria-labelledby="archify-diagram-title archify-diagram-description" data-preset="classic" data-quality-profile="showcase" style="" width="980" height="495" xmlns="http://www.w3.org/2000/svg" data-theme="light"><style>
 /*
 JetBrains Mono variable WOFF2 subsets from Google Fonts service revision v24.
 These fixed bytes are shared by the viewer and its SVG/raster exports.
@@ -422,28 +422,28 @@ rect.c-bg-rect { fill: var(--bg); }
         <rect width="100%" height="100%" fill="url(#grid)"/>
 
         <!-- Data Stages -->
-        <rect data-graph-role="structural-frame" data-composition-frame-kind="stage" data-composition-frame-id="0" x="16" y="46" width="168" height="600" rx="10" class="c-lane" stroke-width="1"/>
+        <rect data-graph-role="structural-frame" data-composition-frame-kind="stage" data-composition-frame-id="0" x="16" y="46" width="168" height="375" rx="10" class="c-lane" stroke-width="1"/>
         <text x="100" y="68" class="t-dim" font-size="9" font-weight="600" text-anchor="middle">01 / Capture and extract</text>
 
-        <rect data-graph-role="structural-frame" data-composition-frame-kind="stage" data-composition-frame-id="1" x="231" y="46" width="168" height="600" rx="10" class="c-lane" stroke-width="1"/>
+        <rect data-graph-role="structural-frame" data-composition-frame-kind="stage" data-composition-frame-id="1" x="231" y="46" width="168" height="375" rx="10" class="c-lane" stroke-width="1"/>
         <text x="315" y="68" class="t-dim" font-size="9" font-weight="600" text-anchor="middle">02 / Propose</text>
 
-        <rect data-graph-role="structural-frame" data-composition-frame-kind="stage" data-composition-frame-id="2" x="446" y="46" width="168" height="600" rx="10" class="c-lane" stroke-width="1"/>
+        <rect data-graph-role="structural-frame" data-composition-frame-kind="stage" data-composition-frame-id="2" x="446" y="46" width="168" height="375" rx="10" class="c-lane" stroke-width="1"/>
         <text x="530" y="68" class="t-dim" font-size="9" font-weight="600" text-anchor="middle">03 / Commit</text>
 
-        <rect data-graph-role="structural-frame" data-composition-frame-kind="stage" data-composition-frame-id="3" x="661" y="46" width="168" height="600" rx="10" class="c-lane" stroke-width="1"/>
+        <rect data-graph-role="structural-frame" data-composition-frame-kind="stage" data-composition-frame-id="3" x="661" y="46" width="168" height="375" rx="10" class="c-lane" stroke-width="1"/>
         <text x="745" y="68" class="t-dim" font-size="9" font-weight="600" text-anchor="middle">04 / Verify and consume</text>
 
         <!-- Flow paths -->
-        <path data-edge-from="intake" data-edge-to="extraction" data-edge-label="source documents" data-edge-key="0" data-composition-points="100,186;100,356" d="M 100 186 L 100 356" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
-        <path data-edge-from="extraction" data-edge-to="candidate" data-edge-label="structured facts" data-edge-key="1" data-composition-points="156,385;207.5,385;207.5,157;259,157" d="M 156 385 L 207.5 385 L 207.5 157 L 259 157" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
-        <path data-edge-from="candidate" data-edge-to="receipt" data-edge-label="freeze evidence" data-edge-key="2" data-composition-points="315,186;315,356" d="M 315 186 L 315 356" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+        <path data-edge-from="intake" data-edge-to="extraction" data-edge-label="source documents" data-edge-key="0" data-composition-points="100,186;100,242" d="M 100 186 L 100 242" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+        <path data-edge-from="extraction" data-edge-to="candidate" data-edge-label="structured facts" data-edge-key="1" data-composition-points="156,271;207.5,271;207.5,157;259,157" d="M 156 271 L 207.5 271 L 207.5 157 L 259 157" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+        <path data-edge-from="candidate" data-edge-to="receipt" data-edge-label="freeze evidence" data-edge-key="2" data-composition-points="315,186;315,242" d="M 315 186 L 315 242" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
         <path data-edge-from="candidate" data-edge-to="db" data-edge-label="committed entry" data-edge-key="3" data-composition-points="371,157;474,157" d="M 371 157 L 474 157" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
-        <path data-edge-from="receipt" data-edge-to="ledger" data-edge-label="append" data-edge-key="4" data-composition-points="371,385;474,385" d="M 371 385 L 474 385" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+        <path data-edge-from="receipt" data-edge-to="ledger" data-edge-label="append" data-edge-key="4" data-composition-points="371,271;474,271" d="M 371 271 L 474 271" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
         <path data-edge-from="db" data-edge-to="command" data-edge-label="current state" data-edge-key="5" data-composition-points="586,157;689,157" d="M 586 157 L 689 157" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
-        <path data-edge-from="ledger" data-edge-to="guardian" data-edge-label="frozen receipt bytes" data-edge-key="6" data-composition-points="586,378;637.5,378;637.5,271;689,271" d="M 586 378 L 637.5 378 L 637.5 271 L 689 271" class="a-security" stroke-width="1.4" marker-end="url(#arrowhead-security)"/>
+        <path data-edge-from="ledger" data-edge-to="guardian" data-edge-label="frozen receipt bytes" data-edge-key="6" data-composition-points="586,271;689,271" d="M 586 271 L 689 271" class="a-security" stroke-width="1.4" marker-end="url(#arrowhead-security)"/>
         <path data-edge-from="guardian" data-edge-to="command" data-edge-label="verdict or challenge" data-edge-key="7" data-composition-points="745,242;745,186" d="M 745 242 L 745 186" class="a-security" stroke-width="1.4" marker-end="url(#arrowhead-security)"/>
-        <path data-edge-from="ledger" data-edge-to="engram" data-edge-label="durable history" data-edge-key="8" data-composition-points="586,392;637.5,392;637.5,499;689,499" d="M 586 392 L 637.5 392 L 637.5 499 L 689 499" class="a-dashed" stroke-width="1.4" marker-end="url(#arrowhead-dashed)"/>
+        <path data-edge-from="ledger" data-edge-to="engram" data-edge-label="durable history" data-edge-key="8" data-composition-points="586,271;637.5,271;637.5,385;689,385" d="M 586 271 L 637.5 271 L 637.5 385 L 689 385" class="a-dashed" stroke-width="1.4" marker-end="url(#arrowhead-dashed)"/>
 
         <!-- Nodes -->
         <g id="node-intake" data-node-id="intake" data-node-label="Document Intake" tabindex="0" role="button" aria-label="Focus Document Intake, invoices, contracts, proofs, 01 / Capture and extract" aria-pressed="false" data-node-kind="external" data-node-sublabel="invoices, contracts, proofs" data-node-tag="untrusted" data-node-context="01 / Capture and extract">
@@ -461,14 +461,14 @@ rect.c-bg-rect { fill: var(--bg); }
 
         <g id="node-extraction" data-node-id="extraction" data-node-label="Agent Extraction" tabindex="0" role="button" aria-label="Focus Agent Extraction, parse and structure, 01 / Capture and extract" aria-pressed="false" data-node-kind="backend" data-node-sublabel="parse and structure" data-node-tag="proposes only" data-node-context="01 / Capture and extract">
           <title>Agent Extraction · parse and structure · 01 / Capture and extract · proposes only</title>
-          <rect x="44" y="356" width="112" height="58" rx="6" class="c-mask"/>
-          <rect x="44" y="356" width="112" height="58" rx="6" class="c-backend" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(50 362) scale(0.6875)">
+          <rect x="44" y="242" width="112" height="58" rx="6" class="c-mask"/>
+          <rect x="44" y="242" width="112" height="58" rx="6" class="c-backend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(50 248) scale(0.6875)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
-          <text data-node-label="" x="100" y="377" class="t-primary" font-size="10" font-weight="600" text-anchor="middle">Agent Extraction</text>
-          <text x="100" y="393" class="t-muted" font-size="7" text-anchor="middle">parse and structure</text>
-        <text x="100" y="403" class="t-backend" font-size="7" text-anchor="middle">proposes only</text>
+          <text data-node-label="" x="100" y="263" class="t-primary" font-size="10" font-weight="600" text-anchor="middle">Agent Extraction</text>
+          <text x="100" y="279" class="t-muted" font-size="7" text-anchor="middle">parse and structure</text>
+        <text x="100" y="289" class="t-backend" font-size="7" text-anchor="middle">proposes only</text>
         </g>
 
         <g id="node-candidate" data-node-id="candidate" data-node-label="Fiscal Candidate" tabindex="0" role="button" aria-label="Focus Fiscal Candidate, entry plus its evidence, 02 / Propose" aria-pressed="false" data-node-kind="backend" data-node-sublabel="entry plus its evidence" data-node-tag="reviewable" data-node-context="02 / Propose">
@@ -485,15 +485,15 @@ rect.c-bg-rect { fill: var(--bg); }
 
         <g id="node-receipt" data-node-id="receipt" data-node-label="RDA Receipt" tabindex="0" role="button" aria-label="Focus RDA Receipt, Ed25519 signed, 02 / Propose" aria-pressed="false" data-node-kind="security" data-node-sublabel="Ed25519 signed" data-node-tag="frozen" data-node-context="02 / Propose">
           <title>RDA Receipt · Ed25519 signed · 02 / Propose · frozen</title>
-          <rect x="259" y="356" width="112" height="58" rx="6" class="c-mask"/>
-          <rect x="259" y="356" width="112" height="58" rx="6" class="c-security" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="security" class="semantic-sigil s-security" transform="translate(265 362) scale(0.6875)">
+          <rect x="259" y="242" width="112" height="58" rx="6" class="c-mask"/>
+          <rect x="259" y="242" width="112" height="58" rx="6" class="c-security" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="security" class="semantic-sigil s-security" transform="translate(265 248) scale(0.6875)">
             <path d="M8 2.2 13 4v3.5c0 3.1-1.8 5.4-5 6.5-3.2-1.1-5-3.4-5-6.5V4Z"/>
             <path d="m5.8 8 1.5 1.5 3-3"/>
           </g>
-          <text data-node-label="" x="315" y="377" class="t-primary" font-size="10" font-weight="600" text-anchor="middle">RDA Receipt</text>
-          <text x="315" y="393" class="t-muted" font-size="7" text-anchor="middle">Ed25519 signed</text>
-        <text x="315" y="403" class="t-security" font-size="7" text-anchor="middle">frozen</text>
+          <text data-node-label="" x="315" y="263" class="t-primary" font-size="10" font-weight="600" text-anchor="middle">RDA Receipt</text>
+          <text x="315" y="279" class="t-muted" font-size="7" text-anchor="middle">Ed25519 signed</text>
+        <text x="315" y="289" class="t-security" font-size="7" text-anchor="middle">frozen</text>
         </g>
 
         <g id="node-db" data-node-id="db" data-node-label="Accounting DB" tabindex="0" role="button" aria-label="Focus Accounting DB, tenant-isolated, 03 / Commit" aria-pressed="false" data-node-kind="database" data-node-sublabel="tenant-isolated" data-node-tag="transactional truth" data-node-context="03 / Commit">
@@ -511,15 +511,15 @@ rect.c-bg-rect { fill: var(--bg); }
 
         <g id="node-ledger" data-node-id="ledger" data-node-label="Audit Ledger" tabindex="0" role="button" aria-label="Focus Audit Ledger, append-only, 03 / Commit" aria-pressed="false" data-node-kind="database" data-node-sublabel="append-only" data-node-tag="immutable" data-node-context="03 / Commit">
           <title>Audit Ledger · append-only · 03 / Commit · immutable</title>
-          <rect x="474" y="356" width="112" height="58" rx="6" class="c-mask"/>
-          <rect x="474" y="356" width="112" height="58" rx="6" class="c-database" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(480 362) scale(0.6875)">
+          <rect x="474" y="242" width="112" height="58" rx="6" class="c-mask"/>
+          <rect x="474" y="242" width="112" height="58" rx="6" class="c-database" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(480 248) scale(0.6875)">
             <ellipse cx="8" cy="4" rx="5" ry="2"/>
             <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
           </g>
-          <text data-node-label="" x="530" y="377" class="t-primary" font-size="10" font-weight="600" text-anchor="middle">Audit Ledger</text>
-          <text x="530" y="393" class="t-muted" font-size="7" text-anchor="middle">append-only</text>
-        <text x="530" y="403" class="t-database" font-size="7" text-anchor="middle">immutable</text>
+          <text data-node-label="" x="530" y="263" class="t-primary" font-size="10" font-weight="600" text-anchor="middle">Audit Ledger</text>
+          <text x="530" y="279" class="t-muted" font-size="7" text-anchor="middle">append-only</text>
+        <text x="530" y="289" class="t-database" font-size="7" text-anchor="middle">immutable</text>
         </g>
 
         <g id="node-command" data-node-id="command" data-node-label="Command Center" tabindex="0" role="button" aria-label="Focus Command Center, operator view, 04 / Verify and consume" aria-pressed="false" data-node-kind="frontend" data-node-sublabel="operator view" data-node-tag="human surface" data-node-context="04 / Verify and consume">
@@ -552,32 +552,32 @@ rect.c-bg-rect { fill: var(--bg); }
 
         <g id="node-engram" data-node-id="engram" data-node-label="Drenyra Engram" tabindex="0" role="button" aria-label="Focus Drenyra Engram, institutional memory, 04 / Verify and consume" aria-pressed="false" data-node-kind="database" data-node-sublabel="institutional memory" data-node-tag="informs only" data-node-context="04 / Verify and consume">
           <title>Drenyra Engram · institutional memory · 04 / Verify and consume · informs only</title>
-          <rect x="689" y="470" width="112" height="58" rx="6" class="c-mask"/>
-          <rect x="689" y="470" width="112" height="58" rx="6" class="c-database" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(695 476) scale(0.6875)">
+          <rect x="689" y="356" width="112" height="58" rx="6" class="c-mask"/>
+          <rect x="689" y="356" width="112" height="58" rx="6" class="c-database" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(695 362) scale(0.6875)">
             <ellipse cx="8" cy="4" rx="5" ry="2"/>
             <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
           </g>
-          <text data-node-label="" x="745" y="491" class="t-primary" font-size="10" font-weight="600" text-anchor="middle">Drenyra Engram</text>
-          <text x="745" y="507" class="t-muted" font-size="7" text-anchor="middle">institutional memory</text>
-        <text x="745" y="517" class="t-database" font-size="7" text-anchor="middle">informs only</text>
+          <text data-node-label="" x="745" y="377" class="t-primary" font-size="10" font-weight="600" text-anchor="middle">Drenyra Engram</text>
+          <text x="745" y="393" class="t-muted" font-size="7" text-anchor="middle">institutional memory</text>
+        <text x="745" y="403" class="t-database" font-size="7" text-anchor="middle">informs only</text>
         </g>
 
         <!-- Flow labels -->
         <g data-edge-from="intake" data-edge-to="extraction" data-edge-label="source documents" data-edge-key="0">
-          <rect x="54.8" y="199" width="90.4" height="27" rx="4" class="c-mask"/>
-          <text x="100" y="210" class="t-backend" font-size="8" text-anchor="middle">source documents</text>
-        <text x="100" y="221" class="t-dim" font-size="7" text-anchor="middle">untrusted input</text>
+          <rect x="54.8" y="97" width="90.4" height="27" rx="4" class="c-mask"/>
+          <text x="100" y="108" class="t-backend" font-size="8" text-anchor="middle">source documents</text>
+        <text x="100" y="119" class="t-dim" font-size="7" text-anchor="middle">untrusted input</text>
         </g>
         <g data-edge-from="extraction" data-edge-to="candidate" data-edge-label="structured facts" data-edge-key="1">
-          <rect x="162.3" y="250" width="90.4" height="27" rx="4" class="c-mask"/>
-          <text x="207.5" y="261" class="t-backend" font-size="8" text-anchor="middle">structured facts</text>
-        <text x="207.5" y="272" class="t-dim" font-size="7" text-anchor="middle">proposal</text>
+          <rect x="162.3" y="193" width="90.4" height="27" rx="4" class="c-mask"/>
+          <text x="207.5" y="204" class="t-backend" font-size="8" text-anchor="middle">structured facts</text>
+        <text x="207.5" y="215" class="t-dim" font-size="7" text-anchor="middle">proposal</text>
         </g>
         <g data-edge-from="candidate" data-edge-to="receipt" data-edge-label="freeze evidence" data-edge-key="2">
-          <rect x="272.25" y="199" width="85.5" height="27" rx="4" class="c-mask"/>
-          <text x="315" y="210" class="t-backend" font-size="8" text-anchor="middle">freeze evidence</text>
-        <text x="315" y="221" class="t-dim" font-size="7" text-anchor="middle">signed</text>
+          <rect x="362.25" y="189" width="85.5" height="27" rx="4" class="c-mask"/>
+          <text x="405" y="200" class="t-backend" font-size="8" text-anchor="middle">freeze evidence</text>
+        <text x="405" y="211" class="t-dim" font-size="7" text-anchor="middle">signed</text>
         </g>
         <g data-edge-from="candidate" data-edge-to="db" data-edge-label="committed entry" data-edge-key="3">
           <rect x="379.75" y="136" width="85.5" height="27" rx="4" class="c-mask"/>
@@ -585,9 +585,9 @@ rect.c-bg-rect { fill: var(--bg); }
         <text x="422.5" y="158" class="t-dim" font-size="7" text-anchor="middle">after approval</text>
         </g>
         <g data-edge-from="receipt" data-edge-to="ledger" data-edge-label="append" data-edge-key="4">
-          <rect x="394.45" y="364" width="56.1" height="27" rx="4" class="c-mask"/>
-          <text x="422.5" y="375" class="t-backend" font-size="8" text-anchor="middle">append</text>
-        <text x="422.5" y="386" class="t-dim" font-size="7" text-anchor="middle">immutable</text>
+          <rect x="394.45" y="250" width="56.1" height="27" rx="4" class="c-mask"/>
+          <text x="422.5" y="261" class="t-backend" font-size="8" text-anchor="middle">append</text>
+        <text x="422.5" y="272" class="t-dim" font-size="7" text-anchor="middle">immutable</text>
         </g>
         <g data-edge-from="db" data-edge-to="command" data-edge-label="current state" data-edge-key="5">
           <rect x="599.65" y="136" width="75.7" height="27" rx="4" class="c-mask"/>
@@ -595,43 +595,43 @@ rect.c-bg-rect { fill: var(--bg); }
         <text x="637.5" y="158" class="t-dim" font-size="7" text-anchor="middle">tenant-scoped</text>
         </g>
         <g data-edge-from="ledger" data-edge-to="guardian" data-edge-label="frozen receipt bytes" data-edge-key="6">
-          <rect x="582.5" y="303.5" width="110" height="27" rx="4" class="c-mask"/>
-          <text x="637.5" y="314.5" class="t-security" font-size="8" text-anchor="middle">frozen receipt bytes</text>
-        <text x="637.5" y="325.5" class="t-dim" font-size="7" text-anchor="middle">read-only</text>
+          <rect x="583" y="97" width="110" height="27" rx="4" class="c-mask"/>
+          <text x="638" y="108" class="t-security" font-size="8" text-anchor="middle">frozen receipt bytes</text>
+        <text x="638" y="119" class="t-dim" font-size="7" text-anchor="middle">read-only</text>
         </g>
         <g data-edge-from="guardian" data-edge-to="command" data-edge-label="verdict or challenge" data-edge-key="7">
-          <rect x="690" y="203" width="110" height="27" rx="4" class="c-mask"/>
-          <text x="745" y="214" class="t-security" font-size="8" text-anchor="middle">verdict or challenge</text>
-        <text x="745" y="225" class="t-dim" font-size="7" text-anchor="middle">advisory</text>
+          <rect x="780" y="303" width="110" height="27" rx="4" class="c-mask"/>
+          <text x="835" y="314" class="t-security" font-size="8" text-anchor="middle">verdict or challenge</text>
+        <text x="835" y="325" class="t-dim" font-size="7" text-anchor="middle">advisory</text>
         </g>
         <g data-edge-from="ledger" data-edge-to="engram" data-edge-label="durable history" data-edge-key="8">
-          <rect x="589.85" y="424.5" width="95.3" height="27" rx="4" class="c-mask"/>
-          <text x="637.5" y="435.5" class="t-messagebus" font-size="8" text-anchor="middle">durable history</text>
-        <text x="637.5" y="446.5" class="t-dim" font-size="7" text-anchor="middle">non-authoritative</text>
+          <rect x="589.85" y="307" width="95.3" height="27" rx="4" class="c-mask"/>
+          <text x="637.5" y="318" class="t-messagebus" font-size="8" text-anchor="middle">durable history</text>
+        <text x="637.5" y="329" class="t-dim" font-size="7" text-anchor="middle">non-authoritative</text>
         </g>
 
         <!-- Legend -->
         <g data-legend="">
-          <text x="40" y="664" class="t-primary" font-size="12" font-weight="650">Legend</text>
-          <g data-legend-semantic-kind="emphasis" data-legend-x="40" data-legend-baseline="684" data-legend-width="103">
-            <path d="M 40 681 L 74 681" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
-            <text x="83" y="684" class="t-muted" font-size="10" font-weight="500">primary data</text>
+          <text x="40" y="439" class="t-primary" font-size="12" font-weight="650">Legend</text>
+          <g data-legend-semantic-kind="emphasis" data-legend-x="40" data-legend-baseline="459" data-legend-width="103">
+            <path d="M 40 456 L 74 456" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+            <text x="83" y="459" class="t-muted" font-size="10" font-weight="500">primary data</text>
           </g>
-          <g data-legend-semantic-kind="security" data-legend-x="165" data-legend-baseline="684" data-legend-width="103">
-            <path d="M 165 681 L 199 681" class="a-security" stroke-width="1.4" marker-end="url(#arrowhead-security)"/>
-            <text x="208" y="684" class="t-muted" font-size="10" font-weight="500">policy / PII</text>
+          <g data-legend-semantic-kind="security" data-legend-x="165" data-legend-baseline="459" data-legend-width="103">
+            <path d="M 165 456 L 199 456" class="a-security" stroke-width="1.4" marker-end="url(#arrowhead-security)"/>
+            <text x="208" y="459" class="t-muted" font-size="10" font-weight="500">policy / PII</text>
           </g>
-          <g data-legend-semantic-kind="dashed" data-legend-x="290" data-legend-baseline="684" data-legend-width="98">
-            <path d="M 290 681 L 324 681" class="a-dashed" stroke-width="1.4" marker-end="url(#arrowhead-dashed)"/>
-            <text x="333" y="684" class="t-muted" font-size="10" font-weight="500">async batch</text>
+          <g data-legend-semantic-kind="dashed" data-legend-x="290" data-legend-baseline="459" data-legend-width="98">
+            <path d="M 290 456 L 324 456" class="a-dashed" stroke-width="1.4" marker-end="url(#arrowhead-dashed)"/>
+            <text x="333" y="459" class="t-muted" font-size="10" font-weight="500">async batch</text>
           </g>
-          <g data-legend-semantic-kind="database" data-legend-x="410" data-legend-baseline="684" data-legend-width="93">
-            <rect x="410" y="676" width="14" height="9" rx="2" class="c-database" stroke-width="1"/>
-            <text x="432" y="684" class="t-muted" font-size="10" font-weight="500">data store</text>
+          <g data-legend-semantic-kind="database" data-legend-x="410" data-legend-baseline="459" data-legend-width="93">
+            <rect x="410" y="451" width="14" height="9" rx="2" class="c-database" stroke-width="1"/>
+            <text x="432" y="459" class="t-muted" font-size="10" font-weight="500">data store</text>
           </g>
-          <g data-legend-semantic-kind="default" data-legend-x="525" data-legend-baseline="684" data-legend-width="88">
-            <path d="M 525 681 L 559 681" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
-            <text x="568" y="684" class="t-muted" font-size="10" font-weight="500">data flow</text>
+          <g data-legend-semantic-kind="default" data-legend-x="525" data-legend-baseline="459" data-legend-width="88">
+            <path d="M 525 456 L 559 456" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
+            <text x="568" y="459" class="t-muted" font-size="10" font-weight="500">data flow</text>
           </g>
         </g>
       </svg>

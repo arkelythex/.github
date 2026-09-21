@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="0 0 1260 694" role="img" lang="en" aria-labelledby="archify-diagram-title archify-diagram-description" data-preset="classic" data-quality-profile="showcase" style="" width="1260" height="694" xmlns="http://www.w3.org/2000/svg" data-theme="dark"><style>
+<svg viewBox="0 0 1260 584" role="img" lang="en" aria-labelledby="archify-diagram-title archify-diagram-description" data-preset="classic" data-quality-profile="showcase" style="" width="1260" height="584" xmlns="http://www.w3.org/2000/svg" data-theme="dark"><style>
 /*
 JetBrains Mono variable WOFF2 subsets from Google Fonts service revision v24.
 These fixed bytes are shared by the viewer and its SVG/raster exports.
@@ -428,10 +428,10 @@ rect.c-bg-rect { fill: var(--bg); }
         <path data-edge-from="human" data-edge-to="command" data-edge-label="authorizes" data-edge-key="0" data-edge-id="human-authorizes" data-composition-points="190,354;280,354" d="M 190 354 L 280 354" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
         <path data-edge-from="command" data-edge-to="ai" data-edge-label="consumes versioned contracts" data-edge-key="1" data-edge-id="command-consumes" data-composition-points="480,354;680,354" d="M 480 354 L 680 354" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         <path data-edge-from="ai" data-edge-to="db" data-edge-label="transactional truth" data-edge-key="2" data-edge-id="ai-commits" data-composition-points="880,354;1020,354" d="M 880 354 L 1020 354" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
-        <path data-edge-from="engram" data-edge-to="command" data-edge-label="context only" data-edge-key="3" data-edge-id="engram-informs-command" data-composition-points="380,186;380,320" d="M 380 186 L 380 320" class="a-dashed" stroke-width="1.5" marker-end="url(#arrowhead-dashed)"/>
-        <path data-edge-from="skills" data-edge-to="ai" data-edge-label="validated content" data-edge-key="4" data-edge-id="skills-feed-ai" data-composition-points="780,186;780,320" d="M 780 186 L 780 320" class="a-dashed" stroke-width="1.5" marker-end="url(#arrowhead-dashed)"/>
-        <path data-edge-from="pi" data-edge-to="ai" data-edge-label="pinned, checksum-verified" data-edge-key="5" data-edge-id="pi-pins-ai" data-composition-points="773,560;773,388" d="M 773 560 L 773 388" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
-        <path data-edge-from="guardian" data-edge-to="ai" data-edge-label="verifies frozen contracts" data-edge-key="6" data-edge-id="guardian-verifies-ai" data-composition-points="1020,593;996,593;996,412;787,412;787,388" d="M 1020 593 L 1004 593 Q 996 593 996 585 L 996 420 Q 996 412 988 412 L 795 412 Q 787 412 787 404 L 787 388" class="a-security" stroke-width="1.5" marker-end="url(#arrowhead-security)"/>
+        <path data-edge-from="engram" data-edge-to="command" data-edge-label="context only" data-edge-key="3" data-edge-id="engram-informs-command" data-composition-points="380,256;380,320" d="M 380 256 L 380 320" class="a-dashed" stroke-width="1.5" marker-end="url(#arrowhead-dashed)"/>
+        <path data-edge-from="skills" data-edge-to="ai" data-edge-label="validated content" data-edge-key="4" data-edge-id="skills-feed-ai" data-composition-points="780,256;780,320" d="M 780 256 L 780 320" class="a-dashed" stroke-width="1.5" marker-end="url(#arrowhead-dashed)"/>
+        <path data-edge-from="pi" data-edge-to="ai" data-edge-label="pinned, checksum-verified" data-edge-key="5" data-edge-id="pi-pins-ai" data-composition-points="773,450;773,388" d="M 773 450 L 773 388" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+        <path data-edge-from="guardian" data-edge-to="ai" data-edge-label="verifies frozen contracts" data-edge-key="6" data-edge-id="guardian-verifies-ai" data-composition-points="1020,483;996,483;996,412;787,412;787,388" d="M 1020 483 L 1004 483 Q 996 483 996 475 L 996 420 Q 996 412 988 412 L 795 412 Q 787 412 787 404 L 787 388" class="a-security" stroke-width="1.5" marker-end="url(#arrowhead-security)"/>
 
         <!-- Components -->
         <g id="node-human" data-node-id="human" data-node-label="Human Accountant" tabindex="0" role="button" aria-label="Focus Human Accountant, final authority, Architecture component" aria-pressed="false" data-node-kind="external" data-node-sublabel="final authority" data-node-context="Architecture component">
@@ -488,53 +488,53 @@ rect.c-bg-rect { fill: var(--bg); }
 
         <g id="node-engram" data-node-id="engram" data-node-label="Drenyra Engram" tabindex="0" role="button" aria-label="Focus Drenyra Engram, institutional memory, Architecture component" aria-pressed="false" data-node-kind="database" data-node-sublabel="institutional memory" data-node-tag="Alpha v0.2.1" data-node-context="Architecture component">
           <title>Drenyra Engram · institutional memory · Architecture component · Alpha v0.2.1</title>
-          <rect x="280" y="120" width="200" height="66" rx="6" class="c-mask"/>
-          <rect x="280" y="120" width="200" height="66" rx="6" class="c-database" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(286 126) scale(0.6875)">
+          <rect x="280" y="190" width="200" height="66" rx="6" class="c-mask"/>
+          <rect x="280" y="190" width="200" height="66" rx="6" class="c-database" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(286 196) scale(0.6875)">
             <ellipse cx="8" cy="4" rx="5" ry="2"/>
             <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
           </g>
-          <text data-node-label="" x="380" y="151" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Drenyra Engram</text>
-        <text x="380" y="167" class="t-muted" font-size="9" text-anchor="middle">institutional memory</text>
-        <text x="380" y="178" class="t-database" font-size="7" text-anchor="middle">Alpha v0.2.1</text>
+          <text data-node-label="" x="380" y="221" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Drenyra Engram</text>
+        <text x="380" y="237" class="t-muted" font-size="9" text-anchor="middle">institutional memory</text>
+        <text x="380" y="248" class="t-database" font-size="7" text-anchor="middle">Alpha v0.2.1</text>
         </g>
 
         <g id="node-skills" data-node-id="skills" data-node-label="Drenyra Skills" tabindex="0" role="button" aria-label="Focus Drenyra Skills, versioned tax knowledge, Architecture component" aria-pressed="false" data-node-kind="external" data-node-sublabel="versioned tax knowledge" data-node-tag="content layer" data-node-context="Architecture component">
           <title>Drenyra Skills · versioned tax knowledge · Architecture component · content layer</title>
-          <rect x="680" y="120" width="200" height="66" rx="6" class="c-mask"/>
-          <rect x="680" y="120" width="200" height="66" rx="6" class="c-external" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(686 126) scale(0.6875)">
+          <rect x="680" y="190" width="200" height="66" rx="6" class="c-mask"/>
+          <rect x="680" y="190" width="200" height="66" rx="6" class="c-external" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(686 196) scale(0.6875)">
             <rect x="2.5" y="5" width="8.5" height="8" rx="1.5"/>
             <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
           </g>
-          <text data-node-label="" x="780" y="151" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Drenyra Skills</text>
-        <text x="780" y="167" class="t-muted" font-size="9" text-anchor="middle">versioned tax knowledge</text>
-        <text x="780" y="178" class="t-external" font-size="7" text-anchor="middle">content layer</text>
+          <text data-node-label="" x="780" y="221" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Drenyra Skills</text>
+        <text x="780" y="237" class="t-muted" font-size="9" text-anchor="middle">versioned tax knowledge</text>
+        <text x="780" y="248" class="t-external" font-size="7" text-anchor="middle">content layer</text>
         </g>
 
         <g id="node-pi" data-node-id="pi" data-node-label="Drenyra Pi" tabindex="0" role="button" aria-label="Focus Drenyra Pi, Pi-native harness, Architecture component" aria-pressed="false" data-node-kind="backend" data-node-sublabel="Pi-native harness" data-node-tag="Pre-alpha" data-node-context="Architecture component">
           <title>Drenyra Pi · Pi-native harness · Architecture component · Pre-alpha</title>
-          <rect x="680" y="560" width="200" height="66" rx="6" class="c-mask"/>
-          <rect x="680" y="560" width="200" height="66" rx="6" class="c-backend" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(686 566) scale(0.6875)">
+          <rect x="680" y="450" width="200" height="66" rx="6" class="c-mask"/>
+          <rect x="680" y="450" width="200" height="66" rx="6" class="c-backend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(686 456) scale(0.6875)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
-          <text data-node-label="" x="780" y="591" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Drenyra Pi</text>
-        <text x="780" y="607" class="t-muted" font-size="9" text-anchor="middle">Pi-native harness</text>
-        <text x="780" y="618" class="t-backend" font-size="7" text-anchor="middle">Pre-alpha</text>
+          <text data-node-label="" x="780" y="481" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Drenyra Pi</text>
+        <text x="780" y="497" class="t-muted" font-size="9" text-anchor="middle">Pi-native harness</text>
+        <text x="780" y="508" class="t-backend" font-size="7" text-anchor="middle">Pre-alpha</text>
         </g>
 
         <g id="node-guardian" data-node-id="guardian" data-node-label="Drenyra Guardian Angel" tabindex="0" role="button" aria-label="Focus Drenyra Guardian Angel, independent verification, Architecture component" aria-pressed="false" data-node-kind="security" data-node-sublabel="independent verification" data-node-tag="In development" data-node-context="Architecture component">
           <title>Drenyra Guardian Angel · independent verification · Architecture component · In development</title>
-          <rect x="1020" y="560" width="200" height="66" rx="6" class="c-mask"/>
-          <rect x="1020" y="560" width="200" height="66" rx="6" class="c-security" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="security" class="semantic-sigil s-security" transform="translate(1026 566) scale(0.6875)">
+          <rect x="1020" y="450" width="200" height="66" rx="6" class="c-mask"/>
+          <rect x="1020" y="450" width="200" height="66" rx="6" class="c-security" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="security" class="semantic-sigil s-security" transform="translate(1026 456) scale(0.6875)">
             <path d="M8 2.2 13 4v3.5c0 3.1-1.8 5.4-5 6.5-3.2-1.1-5-3.4-5-6.5V4Z"/>
             <path d="m5.8 8 1.5 1.5 3-3"/>
           </g>
-          <text data-node-label="" x="1120" y="591" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Drenyra Guardian Angel</text>
-        <text x="1120" y="607" class="t-muted" font-size="9" text-anchor="middle">independent verification</text>
-        <text x="1120" y="618" class="t-security" font-size="7" text-anchor="middle">In development</text>
+          <text data-node-label="" x="1120" y="481" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Drenyra Guardian Angel</text>
+        <text x="1120" y="497" class="t-muted" font-size="9" text-anchor="middle">independent verification</text>
+        <text x="1120" y="508" class="t-security" font-size="7" text-anchor="middle">In development</text>
         </g>
 
         <!-- Connection labels -->
@@ -551,20 +551,20 @@ rect.c-bg-rect { fill: var(--bg); }
           <text x="950" y="344" class="t-muted" font-size="8" text-anchor="middle">transactional truth</text>
         </g>
         <g data-edge-from="engram" data-edge-to="command" data-edge-label="context only" data-edge-key="3" data-edge-id="engram-informs-command">
-          <rect x="346.2" y="220" width="67.6" height="14" rx="3" class="c-mask"/>
-          <text x="380" y="230" class="t-messagebus" font-size="8" text-anchor="middle">context only</text>
+          <rect x="346.2" y="275" width="67.6" height="14" rx="3" class="c-mask"/>
+          <text x="380" y="285" class="t-messagebus" font-size="8" text-anchor="middle">context only</text>
         </g>
         <g data-edge-from="skills" data-edge-to="ai" data-edge-label="validated content" data-edge-key="4" data-edge-id="skills-feed-ai">
-          <rect x="734.2" y="220" width="91.6" height="14" rx="3" class="c-mask"/>
-          <text x="780" y="230" class="t-messagebus" font-size="8" text-anchor="middle">validated content</text>
+          <rect x="734.2" y="275" width="91.6" height="14" rx="3" class="c-mask"/>
+          <text x="780" y="285" class="t-messagebus" font-size="8" text-anchor="middle">validated content</text>
         </g>
         <g data-edge-from="pi" data-edge-to="ai" data-edge-label="pinned, checksum-verified" data-edge-key="5" data-edge-id="pi-pins-ai">
-          <rect x="708" y="540" width="130" height="14" rx="3" class="c-mask"/>
-          <text x="773" y="550" class="t-muted" font-size="8" text-anchor="middle">pinned, checksum-verified</text>
+          <rect x="708" y="430" width="130" height="14" rx="3" class="c-mask"/>
+          <text x="773" y="440" class="t-muted" font-size="8" text-anchor="middle">pinned, checksum-verified</text>
         </g>
         <g data-edge-from="guardian" data-edge-to="ai" data-edge-label="verifies frozen contracts" data-edge-key="6" data-edge-id="guardian-verifies-ai">
-          <rect x="931" y="482.5" width="130" height="14" rx="3" class="c-mask"/>
-          <text x="996" y="492.5" class="t-security" font-size="8" text-anchor="middle">verifies frozen contracts</text>
+          <rect x="931" y="427.5" width="130" height="14" rx="3" class="c-mask"/>
+          <text x="996" y="437.5" class="t-security" font-size="8" text-anchor="middle">verifies frozen contracts</text>
         </g>
 
         <!-- Boundary labels (foreground masks keep routes out of titles) -->
@@ -572,26 +572,26 @@ rect.c-bg-rect { fill: var(--bg); }
 
         <!-- Legend -->
         <g data-legend="">
-          <text x="40" y="658" class="t-primary" font-size="12" font-weight="650">Legend</text>
-          <g data-legend-semantic-kind="frontend" data-legend-x="40" data-legend-baseline="678" data-legend-width="83">
-            <rect x="40" y="669" width="16" height="10" rx="2.5" class="c-frontend" stroke-width="1"/>
-            <text x="62" y="678" class="t-muted" font-size="10" font-weight="500">Frontend</text>
+          <text x="40" y="548" class="t-primary" font-size="12" font-weight="650">Legend</text>
+          <g data-legend-semantic-kind="frontend" data-legend-x="40" data-legend-baseline="568" data-legend-width="83">
+            <rect x="40" y="559" width="16" height="10" rx="2.5" class="c-frontend" stroke-width="1"/>
+            <text x="62" y="568" class="t-muted" font-size="10" font-weight="500">Frontend</text>
           </g>
-          <g data-legend-semantic-kind="backend" data-legend-x="145" data-legend-baseline="678" data-legend-width="78">
-            <rect x="145" y="669" width="16" height="10" rx="2.5" class="c-backend" stroke-width="1"/>
-            <text x="167" y="678" class="t-muted" font-size="10" font-weight="500">Backend</text>
+          <g data-legend-semantic-kind="backend" data-legend-x="145" data-legend-baseline="568" data-legend-width="78">
+            <rect x="145" y="559" width="16" height="10" rx="2.5" class="c-backend" stroke-width="1"/>
+            <text x="167" y="568" class="t-muted" font-size="10" font-weight="500">Backend</text>
           </g>
-          <g data-legend-semantic-kind="database" data-legend-x="245" data-legend-baseline="678" data-legend-width="83">
-            <rect x="245" y="669" width="16" height="10" rx="2.5" class="c-database" stroke-width="1"/>
-            <text x="267" y="678" class="t-muted" font-size="10" font-weight="500">Database</text>
+          <g data-legend-semantic-kind="database" data-legend-x="245" data-legend-baseline="568" data-legend-width="83">
+            <rect x="245" y="559" width="16" height="10" rx="2.5" class="c-database" stroke-width="1"/>
+            <text x="267" y="568" class="t-muted" font-size="10" font-weight="500">Database</text>
           </g>
-          <g data-legend-semantic-kind="security" data-legend-x="350" data-legend-baseline="678" data-legend-width="83">
-            <rect x="350" y="669" width="16" height="10" rx="2.5" class="c-security" stroke-width="1"/>
-            <text x="372" y="678" class="t-muted" font-size="10" font-weight="500">Security</text>
+          <g data-legend-semantic-kind="security" data-legend-x="350" data-legend-baseline="568" data-legend-width="83">
+            <rect x="350" y="559" width="16" height="10" rx="2.5" class="c-security" stroke-width="1"/>
+            <text x="372" y="568" class="t-muted" font-size="10" font-weight="500">Security</text>
           </g>
-          <g data-legend-semantic-kind="external" data-legend-x="455" data-legend-baseline="678" data-legend-width="83">
-            <rect x="455" y="669" width="16" height="10" rx="2.5" class="c-external" stroke-width="1"/>
-            <text x="477" y="678" class="t-muted" font-size="10" font-weight="500">External</text>
+          <g data-legend-semantic-kind="external" data-legend-x="455" data-legend-baseline="568" data-legend-width="83">
+            <rect x="455" y="559" width="16" height="10" rx="2.5" class="c-external" stroke-width="1"/>
+            <text x="477" y="568" class="t-muted" font-size="10" font-weight="500">External</text>
           </g>
         </g>
       </svg>
