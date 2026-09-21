@@ -1,12 +1,14 @@
 # GGA AI Review Workflow
-# Runs Gentleman Guardian Angel with DeepSeek V4 Flash on PRs to main
+# Runs Gentleman Guardian Angel with OpenAI on PRs to main
 # This flow reviews changes to the public organization repository.
 # No secrets or internal information are exposed.
 
 name: GGA AI Review
 
 on:
-  pull_request:
+  # Intentionally trusted: this workflow reads its definition from the base branch.
+  # PR files are treated as data only; no PR scripts or actions are executed.
+  pull_request_target:
     branches: [main]
     types: [opened, synchronize, reopened]
 
@@ -22,17 +24,21 @@ jobs:
     if: github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout pull request content
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
 
       - name: Run actionlint
         # Pinned to commit SHA of rhysd/actionlint@v1.7.7
         uses: rhysd/actionlint@03d0035246f3e81f36aed592ffb4bebf33a03106
 
   gga-review:
-    name: GGA Review (DeepSeek V4 Flash)
+    name: GGA Review (OpenAI GPT-4.1 mini)
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    environment:
+      name: gga-review
     needs: validate-workflow
     # Only run for PRs from the same repository (not external forks)
     if: github.event.pull_request.head.repo.full_name == github.repository
@@ -56,25 +62,29 @@ jobs:
           fi
           echo "AGENTS.md found ($(wc -l < AGENTS.md) lines)"
 
-      - name: Run GGA review via DeepSeek API
+      - name: Run GGA review via OpenAI API
         id: gga
         env:
-          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
           set -Eeuo pipefail
 
           CHANGED_FILES=$(git diff --name-only "origin/${{ github.event.pull_request.base.ref }}...HEAD" || true)
+          RESULT="reviewed"
           if [[ -z "$CHANGED_FILES" ]]; then
-            echo "result=empty" >> "$GITHUB_OUTPUT"
+            RESULT="empty"
+          fi
+          echo "result=$RESULT" >> "$GITHUB_OUTPUT"
+
+          if [[ "$RESULT" == "empty" ]]; then
             exit 0
           fi
 
           echo "Files to review:"
           echo "$CHANGED_FILES"
-          echo "result=reviewed" >> "$GITHUB_OUTPUT"
 
           REVIEW_FILE="/tmp/gga-review.md"
-          > "$REVIEW_FILE"
+          true > "$REVIEW_FILE"
 
           while IFS= read -r file; do
             if [[ ! -f "$file" ]]; then
@@ -85,7 +95,7 @@ jobs:
 
             # Build JSON payload safely using jq
             PAYLOAD=$(jq -n \
-              --arg model "deepseek-chat" \
+              --arg model "gpt-4.1-mini" \
               --rawfile rules AGENTS.md \
               --rawfile content "$file" \
               --arg filename "$file" \
@@ -94,7 +104,7 @@ jobs:
                 messages: [
                   {
                     role: "system",
-                    content: "You are a code reviewer for the arkelythex organization. Analyze code against the provided coding standards. Be concise and specific. Output in markdown format."
+                    content: "You are a code reviewer for ARKELYTHEX\u0027s organization. Analyze code against the provided coding standards. Be concise and specific. Output in markdown format."
                   },
                   {
                     role: "user",
@@ -107,17 +117,19 @@ jobs:
 
             RESPONSE=$(curl -sS \
               -H "Content-Type: application/json" \
-              -H "Authorization: Bearer $DEEPSEEK_API_KEY" \
+              -H "Authorization: Bearer $OPENAI_API_KEY" \
               -d "$PAYLOAD" \
-              https://api.deepseek.com/v1/chat/completions)
+              https://api.openai.com/v1/chat/completions)
 
             REVIEW=$(echo "$RESPONSE" | jq -r '.choices[0].message.content // "Error: No response from API"')
-            echo "## File: $file" >> "$REVIEW_FILE"
-            echo "" >> "$REVIEW_FILE"
-            echo "$REVIEW" >> "$REVIEW_FILE"
-            echo "" >> "$REVIEW_FILE"
-            echo "---" >> "$REVIEW_FILE"
-            echo "" >> "$REVIEW_FILE"
+            {
+              echo "## File: $file"
+              echo ""
+              echo "$REVIEW"
+              echo ""
+              echo "---"
+              echo ""
+            } >> "$REVIEW_FILE"
 
             echo "::endgroup::"
           done <<< "$CHANGED_FILES"
@@ -140,7 +152,7 @@ jobs:
               console.log('Empty review, skipping comment');
               return;
             }
-            const output = `## 🤖 GGA AI Review (DeepSeek V4 Flash)\n\n${review}\n\n<!-- gga-review -->`;
+            const output = `## 🤖 GGA AI Review (OpenAI GPT-4.1 mini)\n\n${review}\n\n<!-- gga-review -->`;
 
             const { data: comments } = await github.rest.issues.listComments({
               owner: context.repo.owner,

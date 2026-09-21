@@ -1,8 +1,9 @@
 # ARKELYTHEX
 
-> **Mission-grade intelligence systems for the organizations operating in Latin America.**
->
-> **Sistemas de inteligencia de misión crítica para las organizaciones que operan en Latinoamérica.**
+> **Mission-grade intelligence systems for organizations operating in Latin America.**
+
+[![Drenyra AI — alpha v0.5.0](https://img.shields.io/badge/Drenyra%20AI-alpha%20v0.5.0-2ea44f)](https://github.com/arkelythex/drenyra-ai)
+[![Drenyra Pi — pre-alpha](https://img.shields.io/badge/Drenyra%20Pi-pre--alpha-f0a000)](https://github.com/arkelythex/drenyra-pi)
 
 ARKELYTHEX builds the **Drenyra Accounting Ecosystem**: a verifiable financial operating system where fiscal correctness, tenant isolation, and auditability are product safety requirements. Web, CLI, agents, and memory share one discipline — receipts prove execution, contracts freeze behavior, and a human accountant remains the final authority.
 
@@ -46,11 +47,21 @@ The core is **six repositories** with strict, explicit boundaries:
 ### Dependency direction
 
 - `drenyra-command-center` consumes released, versioned `drenyra-ai`; uses `drenyra-engram` for context.
-- `drenyra-pi` consumes a **pinned, package-local, checksum-verified** `drenyra-ai` (never `PATH`); uses `drenyra-engram`.
+- `drenyra-pi` bundles foundation/operator skills and consumes a **pinned, package-local, checksum-verified** `drenyra-ai` (never `PATH`); uses `drenyra-engram`.
 - `drenyra-ai` never depends on the Command Center or Pi, and never knows Drenyra Pi exists.
 - `drenyra-engram` is independent — it informs, it never authorizes.
-- `drenyra-skills` is content (versioned knowledge), not code — the `drenyra-ai` runtime validates and agents consume it.
+- `drenyra-skills` owns specialized, versioned fiscal and jurisdictional knowledge as content, not runtime code; `drenyra-ai` validates and pins it for consumers.
 - `drenyra-guardian-angel` verifies against the frozen `drenyra-ai` contracts — never the author of what it reviews.
+
+### Skills packaging boundary
+
+Drenyra takes inspiration from Gentle-AI's packaging model: the Pi package ships the stable skills needed to operate the harness, while specialized knowledge remains an independently versioned catalog.
+
+- **Bundled in `drenyra-pi`** — foundation and operator skills for scope, evidence, chains, safety, and the Pi workflow.
+- **Maintained in `drenyra-skills`** — Peru and future jurisdictional, regulatory, and practice-specific knowledge, with sources, validity, and version history.
+- **Validated by `drenyra-ai`** — runtime checksums, signatures, pinning, and mission authority; neither skills repository authorizes fiscal actions.
+
+This keeps the package convenient without making the Pi harness the owner of the complete fiscal-knowledge catalog.
 
 ### Authority model
 
@@ -74,7 +85,7 @@ Human accountant           → final authority
 
 ---
 
-## OTHER ARKELYTHEX SYSTEMS
+## ARKELYTHEX'S OTHER SYSTEMS
 
 | Repo | Role | Status |
 | --- | --- | --- |
