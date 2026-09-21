@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "ARKELYTHEX Five-Layer Model",
+    "quality_profile": "showcase",
+    "views": [
+      {
+        "id": "product-stack",
+        "label": "The product stack",
+        "focus": ["fabric", "ontology", "intelligence", "command"],
+        "note": "Drenyra and Elvyra today: shared infrastructure, a live model of the operation, cognition, and human command."
+      },
+      {
+        "id": "foundation-first",
+        "label": "Foundation first",
+        "focus": ["fabric", "ontology"],
+        "note": "Layer 1 makes every later layer possible: identity, tenancy, events, audit."
+      },
+      {
+        "id": "future-edge",
+        "label": "Future edge",
+        "focus": ["edge", "command"],
+        "note": "The physical layer is built only after the four software layers are mature."
+      }
+    ]
+  },
+  "components": [
+    {
+      "id": "fabric",
+      "type": "security",
+      "label": "Layer 1 · Fabric",
+      "sublabel": "identity, tenancy, audit",
+      "pos": [40, 140],
+      "size": [190, 120]
+    },
+    {
+      "id": "ontology",
+      "type": "database",
+      "label": "Layer 2 · Ontology",
+      "sublabel": "objects, states, policies",
+      "pos": [300, 140],
+      "size": [190, 120]
+    },
+    {
+      "id": "intelligence",
+      "type": "backend",
+      "label": "Layer 3 · Intelligence",
+      "sublabel": "reasoning, extraction",
+      "pos": [560, 140],
+      "size": [190, 120]
+    },
+    {
+      "id": "command",
+      "type": "frontend",
+      "label": "Layer 4 · Command",
+      "sublabel": "approvals, human oversight",
+      "pos": [820, 140],
+      "size": [190, 120]
+    },
+    {
+      "id": "edge",
+      "type": "cloud",
+      "label": "Layer 5 · Edge",
+      "sublabel": "sensors, offline operation",
+      "pos": [1080, 140],
+      "size": [190, 120]
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "Where Drenyra and Elvyra operate today",
+      "wraps": ["fabric", "ontology", "intelligence", "command"],
+      "pad": 30
+    }
+  ],
+  "connections": [
+    {
+      "id": "fabric-enables-ontology",
+      "from": "fabric",
+      "to": "ontology",
+      "label": "enables",
+      "variant": "emphasis",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "ontology-enables-intelligence",
+      "from": "ontology",
+      "to": "intelligence",
+      "label": "enables",
+      "variant": "emphasis",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "intelligence-enables-command",
+      "from": "intelligence",
+      "to": "command",
+      "label": "enables",
+      "variant": "emphasis",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "command-enables-edge",
+      "from": "command",
+      "to": "edge",
+      "label": "enables",
+      "variant": "dashed",
+      "fromSide": "right",
+      "toSide": "left"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "How the stack builds",
+      "items": [
+        "Each layer abstracts one concern and can operate independently",
+        "A higher layer is enabled by the layer beneath it, never by skipping one"
+      ]
+    },
+    {
+      "dot": "cyan",
+      "title": "Intelligence scaling rule",
+      "items": [
+        "Deterministic rules first, then small specialized models",
+        "A human expert remains the top rung, never the first resort"
+      ]
+    },
+    {
+      "dot": "violet",
+      "title": "Command is the human layer",
+      "items": [
+        "Missions, approvals, incidents and override live here",
+        "AI assists and prepares; a human authorizes; the system executes"
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Edge comes last",
+      "items": [
+        "Physical devices land only after layers 1 to 4 are mature",
+        "Today Drenyra and Elvyra stop at Command; edge is the next vertical"
+      ]
+    }
+  ]
+}

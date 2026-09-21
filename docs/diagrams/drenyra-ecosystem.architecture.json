@@ -1,0 +1,193 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Drenyra Accounting Ecosystem",
+    "quality_profile": "showcase",
+    "views": [
+      {
+        "id": "accounting-close",
+        "label": "Accounting close",
+        "focus": ["human", "command", "ai", "db"],
+        "note": "The main path: a human authorizes, the command center drives, the runtime decides, PostgreSQL keeps truth."
+      },
+      {
+        "id": "operator-and-knowledge",
+        "label": "Operator and knowledge",
+        "focus": ["pi", "ai", "skills", "command"],
+        "note": "Drenyra Pi and Drenyra Skills feed the same runtime without owning it."
+      },
+      {
+        "id": "independent-verification",
+        "label": "Independent verification",
+        "focus": ["guardian", "ai", "engram"],
+        "note": "Verification reads frozen contracts; institutional memory informs and never authorizes."
+      }
+    ]
+  },
+  "components": [
+    {
+      "id": "human",
+      "type": "external",
+      "label": "Human Accountant",
+      "sublabel": "final authority",
+      "pos": [40, 320],
+      "size": [150, 68]
+    },
+    {
+      "id": "command",
+      "type": "frontend",
+      "label": "Drenyra Command Center",
+      "sublabel": "web + API + TUI",
+      "pos": [280, 320],
+      "size": [200, 68],
+      "tag": "In development"
+    },
+    {
+      "id": "ai",
+      "type": "backend",
+      "label": "Drenyra AI",
+      "sublabel": "protocol + runtime",
+      "pos": [680, 320],
+      "size": [200, 68],
+      "tag": "Alpha v0.5.0"
+    },
+    {
+      "id": "db",
+      "type": "database",
+      "label": "Accounting Database",
+      "sublabel": "PostgreSQL",
+      "pos": [1020, 320],
+      "size": [200, 68],
+      "tag": "tenant-isolated"
+    },
+    {
+      "id": "engram",
+      "type": "database",
+      "label": "Drenyra Engram",
+      "sublabel": "institutional memory",
+      "pos": [280, 190],
+      "size": [200, 66],
+      "tag": "Alpha v0.2.1"
+    },
+    {
+      "id": "skills",
+      "type": "external",
+      "label": "Drenyra Skills",
+      "sublabel": "versioned tax knowledge",
+      "pos": [680, 190],
+      "size": [200, 66],
+      "tag": "content layer"
+    },
+    {
+      "id": "pi",
+      "type": "backend",
+      "label": "Drenyra Pi",
+      "sublabel": "Pi-native harness",
+      "pos": [680, 450],
+      "size": [200, 66],
+      "tag": "Pre-alpha"
+    },
+    {
+      "id": "guardian",
+      "type": "security",
+      "label": "Drenyra Guardian Angel",
+      "sublabel": "independent verification",
+      "pos": [1020, 450],
+      "size": [200, 66],
+      "tag": "In development"
+    }
+  ],
+  "connections": [
+    {
+      "id": "human-authorizes",
+      "from": "human",
+      "to": "command",
+      "label": "authorizes",
+      "variant": "emphasis"
+    },
+    {
+      "id": "command-consumes",
+      "from": "command",
+      "to": "ai",
+      "label": "consumes versioned contracts"
+    },
+    {
+      "id": "ai-commits",
+      "from": "ai",
+      "to": "db",
+      "label": "transactional truth"
+    },
+    {
+      "id": "engram-informs-command",
+      "from": "engram",
+      "to": "command",
+      "label": "context only",
+      "variant": "dashed",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "labelAt": [380, 285]
+    },
+    {
+      "id": "skills-feed-ai",
+      "from": "skills",
+      "to": "ai",
+      "label": "validated content",
+      "variant": "dashed",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "labelAt": [780, 285]
+    },
+    {
+      "id": "pi-pins-ai",
+      "from": "pi",
+      "to": "ai",
+      "label": "pinned, checksum-verified",
+      "fromSide": "top",
+      "toSide": "bottom"
+    },
+    {
+      "id": "guardian-verifies-ai",
+      "from": "guardian",
+      "to": "ai",
+      "label": "verifies frozen contracts",
+      "variant": "security",
+      "fromSide": "left",
+      "toSide": "bottom"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Command and operator experience",
+      "items": [
+        "Command Center consumes released, versioned drenyra-ai",
+        "Humans authorize; agents prepare and never decide"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Verifiable core",
+      "items": [
+        "Receipts and an append-only ledger prove execution",
+        "PostgreSQL holds transactional truth, tenant-isolated"
+      ]
+    },
+    {
+      "dot": "violet",
+      "title": "Knowledge and memory",
+      "items": [
+        "Drenyra Skills is content, not code, validated by the runtime",
+        "Drenyra Engram informs and never authorizes"
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Independent verification",
+      "items": [
+        "Guardian Angel verifies against frozen contracts",
+        "The verifier is never the author of what it reviews"
+      ]
+    }
+  ]
+}

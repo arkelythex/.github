@@ -13,36 +13,19 @@ ARKELYTHEX builds the **Drenyra Accounting Ecosystem**: a verifiable financial o
 
 The core is **six repositories** with strict, explicit boundaries:
 
-| Repo | Role | Type | Status |
-| --- | --- | --- | --- |
-| [drenyra-command-center](https://github.com/arkelythex/drenyra-command-center) | Accounting Command Center — product UI, tenants, documents, close, reconciliation, approvals, SUNAT | Product / Command Center | In development |
-| [drenyra-ai](https://github.com/arkelythex/drenyra-ai) | Verifiable Accounting Agent Ecosystem — protocol, runtime, receipts, ledger, missions, candidates, review | Runtime and protocol | Alpha (v0.5.0) |
-| [drenyra-pi](https://github.com/arkelythex/drenyra-pi) | Pi-native Accounting Operations Harness — operator experience, pinned verified runtime | Pi-native harness | Pre-alpha |
-| [drenyra-engram](https://github.com/arkelythex/drenyra-engram) | Institutional Accounting Memory — scope-first memory, lifecycle, provenance | Institutional memory | Alpha (v0.2.1) |
-| [drenyra-skills](https://github.com/arkelythex/drenyra-skills) | Versioned accounting, tax, and operational knowledge — content layer (content ≠ runtime) | Knowledge | In development |
-| [drenyra-guardian-angel](https://github.com/arkelythex/drenyra-guardian-angel) | Independent adversarial verification — refutation, dual review, evidence checks | Verification | In development |
+| Repo                                                                   | Role                                                                                             | Type                  | Status          |
+| ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | --------------------- | --------------- |
+| [drenyra-command-center](https://github.com/arkelythex/drenyra-command-center) | Accounting Command Center — product UI, tenants, documents, close, reconciliation, approvals, SUNAT | Product / Command Center | In development  |
+| [drenyra-ai](https://github.com/arkelythex/drenyra-ai)                 | Verifiable Accounting Agent Ecosystem — protocol, runtime, receipts, ledger, missions, candidates, review | Runtime and protocol  | Alpha (v0.5.0)  |
+| [drenyra-pi](https://github.com/arkelythex/drenyra-pi)                 | Pi-native Accounting Operations Harness — operator experience, pinned verified runtime           | Pi-native harness     | Pre-alpha       |
+| [drenyra-engram](https://github.com/arkelythex/drenyra-engram)         | Institutional Accounting Memory — scope-first memory, lifecycle, provenance                      | Institutional memory  | Alpha (v0.2.1)  |
+| [drenyra-skills](https://github.com/arkelythex/drenyra-skills)         | Versioned accounting, tax, and operational knowledge — content layer (content ≠ runtime)         | Knowledge             | In development  |
+| [drenyra-guardian-angel](https://github.com/arkelythex/drenyra-guardian-angel) | Independent adversarial verification — refutation, dual review, evidence checks                  | Verification          | In development  |
 
-```text
-                            ┌───────────────────────┐
-                            │ Drenyra-Engram        │  Institutional memory — Alpha
-                            └───────────▲───────────┘  (informs, never authorizes)
-                                        │
-                       ┌────────────────┴────────────────┐
-                       │                                 │
-              ┌────────┴────────┐              ┌──────────┴─────────┐
-              │ Drenyra-AI      │              │ Drenyra-Pi         │  Pi-native — Pre-alpha
-              │ Verifiable core │◄─────────────│ (pins drenyra-ai)  │  harness
-              │ Alpha           │              │                    │
-              └───────▲─────────┘              └────────────────────┘
-                      │
-              ┌───────┴─────────┐
-              │ Drenyra Command │  Command Center — web + API + TUI — In development
-              │ Center          │  (consumes drenyra-ai contracts)
-              └─────────────────┘
+![Drenyra Accounting Ecosystem](../docs/diagrams/drenyra-ecosystem.architecture.light.svg#gh-light-mode-only)
+![Drenyra Accounting Ecosystem](../docs/diagrams/drenyra-ecosystem.architecture.dark.svg#gh-dark-mode-only)
 
-      Drenyra-Skills          → versioned accounting/tax knowledge (content layer) — In development
-      Drenyra-Guardian-Angel  → independent adversarial verification (consumes contracts) — In development
-```
+*Open the [interactive version](https://arkelythex.github.io/.github/drenyra-ecosystem.architecture.html) for pan, zoom, focus, and relationship tracing.*
 
 ### Dependency direction
 
@@ -65,14 +48,39 @@ This keeps the package convenient without making the Pi harness the owner of the
 
 ### Authority model
 
+A fiscal close is proposed by the runtime, authorized by a human, committed to PostgreSQL, and proved by a signed receipt that an independent verifier re-reads.
+
+![Fiscal close: candidate to signed receipt](../docs/diagrams/fiscal-close.sequence.light.svg#gh-light-mode-only)
+![Fiscal close: candidate to signed receipt](../docs/diagrams/fiscal-close.sequence.dark.svg#gh-dark-mode-only)
+
+*Open the [interactive version](https://arkelythex.github.io/.github/fiscal-close.sequence.html).*
+
 ```text
 Drenyra accounting database → transactional truth (PostgreSQL, tenant-isolated)
 Drenyra Engram             → institutional memory (guides, never authorizes)
-Drenyra AI receipts+ledger  → execution proof (Ed25519-signed, append-only)
+Drenyra AI receipts+ledger → execution proof (Ed25519-signed, append-only)
 Drenyra Guardian Angel     → independent adversarial verification (never the author)
 Drenyra Pi                 → operator experience
 Human accountant           → final authority
 ```
+
+- The runtime proposes, never decides: Drenyra AI reads tenant-scoped records and builds a candidate close, and nothing reaches PostgreSQL until a human authorizes it.
+- What the receipt proves: every committed action appends an Ed25519-signed receipt, and money is integer math — the committed cents are the receipt's cents.
+- Verification is independent: Guardian Angel reads frozen receipt bytes, not live state, and a challenged receipt is a finding, never a silent overwrite.
+
+### Evidence pipeline
+
+Every committed action carries its own evidence from the moment it is extracted.
+
+![Evidence pipeline](../docs/diagrams/evidence-pipeline.dataflow.light.svg#gh-light-mode-only)
+![Evidence pipeline](../docs/diagrams/evidence-pipeline.dataflow.dark.svg#gh-dark-mode-only)
+
+*Open the [interactive version](https://arkelythex.github.io/.github/evidence-pipeline.dataflow.html).*
+
+- Two records, one truth: PostgreSQL holds current transactional truth, isolated per tenant, and the append-only ledger holds immutable proof of how it got there.
+- Evidence is produced, not written later: a candidate carries its own evidence from extraction onward, and the receipt is signed at commit time, never reconstructed afterwards.
+- Verification has a separate owner: Guardian Angel reads frozen bytes and can only advise or challenge; disagreement is a recorded finding that a human resolves.
+- Memory informs, it never authorizes: Drenyra Engram stores durable institutional history and provenance, and can never approve, commit or override a fiscal action.
 
 ### Principles
 
@@ -85,13 +93,32 @@ Human accountant           → final authority
 
 ---
 
+## THE ARKELYTHEX FIVE-LAYER MODEL
+
+Every ARKELYTHEX product is built on the same five layers. Each layer abstracts one concern and can operate independently; a higher layer is enabled by the one beneath it, never by skipping one.
+
+![ARKELYTHEX five-layer model](../docs/diagrams/arkelythex-layers.architecture.light.svg#gh-light-mode-only)
+![ARKELYTHEX five-layer model](../docs/diagrams/arkelythex-layers.architecture.dark.svg#gh-dark-mode-only)
+
+*Open the [interactive version](https://arkelythex.github.io/.github/arkelythex-layers.architecture.html).*
+
+- **Layer 1 · Fabric** — shared infrastructure: identity, tenant isolation, permissions, events, documents, audit, sync.
+- **Layer 2 · Ontology** — the live model of the operation: objects, relations, states, actions, policies, provenance.
+- **Layer 3 · Intelligence** — agents, reasoning, document extraction, classification, planning, semantic search.
+- **Layer 4 · Command** — missions, alerts, approvals, incidents, workflow, human oversight and override.
+- **Layer 5 · Edge** — devices, sensors, cameras, drone inspection, on-device inference, offline operation.
+
+Drenyra and Elvyra operate across layers 1–4 today. Layer 5 lands next, and only after layers 1–4 are mature.
+
+---
+
 ## ARKELYTHEX'S OTHER SYSTEMS
 
-| Repo | Role | Status |
-| --- | --- | --- |
-| [.github](https://github.com/arkelythex/.github) | Organization profile and community health | Active |
-| [admin](https://github.com/arkelythex/admin) | Internal tools and administrative infrastructure | Maintenance / review |
-| [elect-validate](https://github.com/arkelythex/elect-validate) | Electoral act validation suite for Peru's ONPE (Go, CLI, web) | Maintenance / review |
+| Repo                                                                       | Role                                                        | Status               |
+| -------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- |
+| [.github](https://github.com/arkelythex/.github)                           | Organization profile and community health                   | Active               |
+| [admin](https://github.com/arkelythex/admin)                               | Internal tools and administrative infrastructure            | Maintenance / review |
+| [elect-validate](https://github.com/arkelythex/elect-validate)             | Electoral act validation suite for Peru's ONPE (Go, CLI, web) | Maintenance / review |
 
 Future verticals (industrial operations, public sector, edge) are planned but have no public repositories yet — they will land as clearly-identified repos, never mixed into `drenyra-command-center`.
 
@@ -107,3 +134,5 @@ Future verticals (industrial operations, public sector, edge) are planned but ha
 ---
 
 *The six Drenyra repositories are public and define the current production architecture. Other production repositories may remain private while public contracts, specifications, threat models, and reference slices are released progressively. Everything else on this page is auxiliary or in transition.*
+
+*All architecture diagrams on this page are generated with [Archify](https://github.com/tt-a1i/archify) from versioned specifications in [`docs/diagrams`](../docs/diagrams).*

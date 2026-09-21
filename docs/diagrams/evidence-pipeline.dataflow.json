@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "diagram_type": "dataflow",
+  "meta": {
+    "title": "Evidence Pipeline — From Document to Institutional Memory",
+    "quality_profile": "showcase",
+    "viewBox": [980, 495],
+    "views": [
+      {
+        "id": "main-transit",
+        "label": "Main transit",
+        "focus": ["intake", "extraction", "candidate", "db", "command"],
+        "note": "A source document becomes structured facts, then a committed entry an operator can see."
+      },
+      {
+        "id": "proof-layer",
+        "label": "The proof layer",
+        "focus": ["candidate", "receipt", "ledger", "guardian"],
+        "note": "The same action is frozen as a signed receipt and independently re-read."
+      },
+      {
+        "id": "consumers",
+        "label": "Consumers",
+        "focus": ["ledger", "engram", "db", "command"],
+        "note": "Operators read current state; institutional memory reads durable history."
+      }
+    ]
+  },
+  "stages": [
+    { "label": "Capture and extract" },
+    { "label": "Propose" },
+    { "label": "Commit" },
+    { "label": "Verify and consume" }
+  ],
+  "nodes": [
+    { "id": "intake", "type": "external", "label": "Document Intake", "sublabel": "invoices, contracts, proofs", "stage": 0, "row": 0, "tag": "untrusted" },
+    { "id": "extraction", "type": "backend", "label": "Agent Extraction", "sublabel": "parse and structure", "stage": 0, "row": 1, "tag": "proposes only" },
+    { "id": "candidate", "type": "backend", "label": "Fiscal Candidate", "sublabel": "entry plus its evidence", "stage": 1, "row": 0, "tag": "reviewable" },
+    { "id": "receipt", "type": "security", "label": "RDA Receipt", "sublabel": "Ed25519 signed", "stage": 1, "row": 1, "tag": "frozen" },
+    { "id": "db", "type": "database", "label": "Accounting DB", "sublabel": "tenant-isolated", "stage": 2, "row": 0, "tag": "transactional truth" },
+    { "id": "ledger", "type": "database", "label": "Audit Ledger", "sublabel": "append-only", "stage": 2, "row": 1, "tag": "immutable" },
+    { "id": "command", "type": "frontend", "label": "Command Center", "sublabel": "operator view", "stage": 3, "row": 0, "tag": "human surface" },
+    { "id": "guardian", "type": "security", "label": "Guardian Angel", "sublabel": "adversarial check", "stage": 3, "row": 1, "tag": "not the author" },
+    { "id": "engram", "type": "database", "label": "Drenyra Engram", "sublabel": "institutional memory", "stage": 3, "row": 2, "tag": "informs only" }
+  ],
+  "flows": [
+    { "from": "intake", "to": "extraction", "label": "source documents", "classification": "untrusted input", "variant": "emphasis", "route": "straight", "fromSide": "bottom", "toSide": "top", "labelAt": [100, 108] },
+    { "from": "extraction", "to": "candidate", "label": "structured facts", "classification": "proposal", "variant": "emphasis" },
+    { "from": "candidate", "to": "receipt", "label": "freeze evidence", "classification": "signed", "variant": "emphasis", "route": "straight", "fromSide": "bottom", "toSide": "top", "labelAt": [405, 200] },
+    { "from": "candidate", "to": "db", "label": "committed entry", "classification": "after approval", "variant": "emphasis" },
+    { "from": "receipt", "to": "ledger", "label": "append", "classification": "immutable", "variant": "emphasis" },
+    { "from": "db", "to": "command", "label": "current state", "classification": "tenant-scoped", "variant": "default", "route": "straight" },
+    { "from": "ledger", "to": "guardian", "label": "frozen receipt bytes", "classification": "read-only", "variant": "security", "route": "straight", "fromSide": "right", "toSide": "left", "labelAt": [638, 108] },
+    { "from": "guardian", "to": "command", "label": "verdict or challenge", "classification": "advisory", "variant": "security", "labelAt": [835, 314] },
+    { "from": "ledger", "to": "engram", "label": "durable history", "classification": "non-authoritative", "variant": "dashed" }
+  ]
+}
