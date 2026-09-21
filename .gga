@@ -2,7 +2,7 @@
 # Generado para arkelythex/.github (repositorio público de organización)
 
 # Provider: DeepSeek V4 Flash via API directa
-PROVIDER="deepseek:deepseek-chat"
+PROVIDER="codex"
 
 # File patterns to review (all files in org repo)
 FILE_PATTERNS="*"
