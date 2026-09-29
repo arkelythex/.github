@@ -28,10 +28,12 @@ body:
       label: Component
       description: Affected repository or area.
       options:
-        - Drenyra
+        - drenyra-command-center
         - drenyra-ai
         - drenyra-shell
         - drenyra-engram
+        - drenyra-skills
+        - drenyra-guardian-angel
         - .github
         - Other
     validations:

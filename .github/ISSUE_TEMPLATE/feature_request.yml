@@ -15,10 +15,12 @@ body:
       label: Component
       description: Repository or area the feature belongs to.
       options:
-        - Drenyra
+        - drenyra-command-center
         - drenyra-ai
         - drenyra-shell
         - drenyra-engram
+        - drenyra-skills
+        - drenyra-guardian-angel
         - .github
         - Other
     validations:
