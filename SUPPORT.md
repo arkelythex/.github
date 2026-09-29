@@ -4,14 +4,14 @@
 
 ## Community Support
 
-- **Issues**: use GitHub Issues on the **relevant product repository** (Drenyra, drenyra-ai, drenyra-pi, drenyra-engram) for bug reports and feature requests. Issues are triaged by maintainers.
+- **Issues**: use GitHub Issues on the **relevant product repository** (Drenyra, drenyra-ai, drenyra-shell, drenyra-engram) for bug reports and feature requests. Issues are triaged by maintainers.
 - **Discussions**: open a discussion or an issue for questions and general inquiries — public answers help everyone.
 
 ## Product Support
 
 | Product | Channel |
 | --- | --- |
-| Drenyra ecosystem (all four repos) | [Issues on the relevant repo](https://github.com/arkelythex) |
+| Drenyra ecosystem (all four repos) | [Issues across the organization](https://github.com/search?q=org%3Aarkelythex+is%3Aissue&type=issues) |
 | Security | [SECURITY.md](SECURITY.md) — private vulnerability reporting |
 
 ## Response Times

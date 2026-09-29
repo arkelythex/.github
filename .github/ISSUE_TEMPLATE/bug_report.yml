@@ -30,18 +30,18 @@ body:
       options:
         - Drenyra
         - drenyra-ai
-        - drenyra-pi
+        - drenyra-shell
         - drenyra-engram
         - .github
         - Other
     validations:
       required: true
   - type: input
-    id: ruc
+    id: ruc_scope
     attributes:
-      label: Fiscal scope — RUC (when applicable)
-      description: RUC affected by this bug, if the bug touches fiscal data.
-      placeholder: "e.g. 20123456789"
+      label: Fiscal scope — masked RUC (when applicable)
+      description: Provide only a non-identifying placeholder or masked suffix; never include a full RUC or customer identifier.
+      placeholder: "e.g. RUC-***-789 or TEST-RUC"
   - type: input
     id: period
     attributes:
@@ -52,7 +52,7 @@ body:
     id: repro
     attributes:
       label: Steps to reproduce
-      description: Minimal, sanitized steps. For monetary behavior, state exact integer amounts (BigInt cents).
+      description: Minimal, sanitized steps. For monetary behavior, use synthetic integer examples only (BigInt cents); never include real fiscal amounts.
       placeholder: "1. ... 2. ... 3. ..."
     validations:
       required: true
@@ -60,7 +60,7 @@ body:
     id: expected
     attributes:
       label: Expected behavior
-      description: What should happen. Monetary values are exact integers in cents.
+      description: What should happen. If monetary behavior is relevant, use synthetic integer examples in cents only; never include real fiscal amounts.
     validations:
       required: true
   - type: textarea

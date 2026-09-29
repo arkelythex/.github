@@ -24,4 +24,4 @@
 
 ## Scope
 
-This policy applies to all public ARKELYTHEX repositories: Drenyra, drenyra-ai, drenyra-pi, drenyra-engram, and the organization's auxiliary repositories. Repository-level `SECURITY.md` files refine this baseline; they never weaken it.
+This policy applies to all public ARKELYTHEX repositories: Drenyra, drenyra-ai, drenyra-shell, drenyra-engram, and the organization's auxiliary repositories. Repository-level `SECURITY.md` files refine this baseline; they never weaken it.

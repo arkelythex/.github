@@ -2,7 +2,7 @@
 
 # Release Checklist — ARKELYTHEX
 
-Applies to all ARKELYTHEX repositories that release artifacts (currently Drenyra, drenyra-ai, drenyra-pi, drenyra-engram).
+Applies to all ARKELYTHEX repositories that release artifacts (currently Drenyra, drenyra-ai, drenyra-shell, drenyra-engram).
 
 ## Version policy
 
@@ -46,4 +46,4 @@ Applies to all ARKELYTHEX repositories that release artifacts (currently Drenyra
 
 - [ ] Tag pushed and verified.
 - [ ] Manifests and SBOM published with the release.
-- [ ] Dependent repositories updated: Drenyra consumes released, versioned drenyra-ai; drenyra-pi pins a package-local, checksum-verified drenyra-ai (never `PATH`).
+- [ ] Dependent repositories updated: Drenyra consumes released, versioned drenyra-ai; drenyra-shell pins a package-local, checksum-verified drenyra-ai (never `PATH`).

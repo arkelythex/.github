@@ -17,7 +17,7 @@ body:
       options:
         - Drenyra
         - drenyra-ai
-        - drenyra-pi
+        - drenyra-shell
         - drenyra-engram
         - .github
         - Other
