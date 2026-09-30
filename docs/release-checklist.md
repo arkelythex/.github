@@ -1,14 +1,14 @@
 > Fiscal convention: monetary values in the Drenyra ecosystem are BigInt cents; no float is ever used for money; version numbers are JSON integers, never floats.
 
-# Release Checklist — ARKELYTHEX
+# ARKELYTHEX's Release Checklist
 
-Applies to all ARKELYTHEX repositories that release artifacts (currently Drenyra, drenyra-ai, drenyra-pi, drenyra-engram).
+Applies to all of ARKELYTHEX's repositories that release artifacts (currently Drenyra, drenyra-ai, drenyra-shell, drenyra-engram).
 
 ## Version policy
 
 - Pre-release phases are `0.0.x` / pre-alpha with suffixed versions (`0.1.0-alpha.1`, …).
 - **Freeze at 0.1.0:** the first public contract freeze. After `0.1.0`, contracts are versioned and compatibility becomes a release gate.
-- Version numbers are JSON integers where they appear in machine-readable artifacts — never floats. `0.1.0` is not `0.1`.
+- Contract and schema versions are JSON integers where they appear in machine-readable artifacts; semantic package versions remain semver strings. `0.1.0` is not `0.1`.
 - Breaking changes follow semver and require a migration note and a contract compatibility report.
 
 ## Gates before release
@@ -46,4 +46,4 @@ Applies to all ARKELYTHEX repositories that release artifacts (currently Drenyra
 
 - [ ] Tag pushed and verified.
 - [ ] Manifests and SBOM published with the release.
-- [ ] Dependent repositories updated: Drenyra consumes released, versioned drenyra-ai; drenyra-pi pins a package-local, checksum-verified drenyra-ai (never `PATH`).
+- [ ] Dependent repositories updated: Drenyra consumes released, versioned drenyra-ai; drenyra-shell pins a package-local, checksum-verified drenyra-ai (never `PATH`).
