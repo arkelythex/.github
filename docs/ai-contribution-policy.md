@@ -1,6 +1,6 @@
 > Fiscal convention: monetary values in the Drenyra ecosystem are BigInt cents; no float is ever used for money; version numbers are JSON integers, never floats.
 
-# AI Contribution Policy — ARKELYTHEX
+# ARKELYTHEX's AI Contribution Policy
 
 ## Principles
 
@@ -24,3 +24,15 @@
 
 - Automated review (GGA) complements human review; it never replaces it. A passing automated review is not approval.
 - Reviewers hold AI-assisted and human-written contributions to the same standard.
+
+## Administrative checklist
+
+Configure and verify these controls in GitHub Settings or organizational infrastructure as code (IaC), not in `AGENTS.md`, workflow YAML, or source files:
+
+- [ ] Require approval from an independent human reviewer; prevent authors from approving their own PRs. A passing GGA review never replaces human approval.
+- [ ] Disable administrator and role-based bypass of review and branch protections; allow no bypass actors.
+- [ ] Scope `OPENAI_API_KEY` to the `gga-review` environment and its intended job only.
+- [ ] Restrict environment deployments to intended pull requests; operators must verify the restriction works with the chosen event trigger, especially `pull_request_target`.
+- [ ] Protect `main`: require PR approval and a successful GGA check, and disallow force-pushes and branch deletion.
+
+These controls are enforced through GitHub Settings or organizational IaC, not by `AGENTS.md`, workflow YAML, or other source files. Re-check the effective settings after changes to repository rules, environments, or workflow behavior.
