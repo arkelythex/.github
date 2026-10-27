@@ -9,13 +9,13 @@
         "id": "accounting-close",
         "label": "Accounting close",
         "focus": ["human", "command", "ai", "db"],
-        "note": "The main path: a human authorizes, the command center drives, the runtime decides, PostgreSQL keeps truth."
+        "note": "The main path: a human authorizes, Drenyra Desktop drives, the runtime decides, PostgreSQL keeps truth."
       },
       {
         "id": "operator-and-knowledge",
         "label": "Operator and knowledge",
         "focus": ["pi", "ai", "skills", "command"],
-        "note": "Drenyra Pi and Drenyra Skills feed the same runtime without owning it."
+        "note": "Drenyra Shell and Drenyra Skills feed the same runtime without owning it."
       },
       {
         "id": "independent-verification",
@@ -82,7 +82,7 @@
     {
       "id": "pi",
       "type": "backend",
-      "label": "Drenyra Pi",
+      "label": "Drenyra Shell",
       "sublabel": "Pi-native harness",
       "pos": [680, 450],
       "size": [200, 66],
