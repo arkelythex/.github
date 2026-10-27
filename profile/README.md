@@ -5,7 +5,7 @@
 [![Drenyra AI — alpha v0.5.0](https://img.shields.io/badge/Drenyra%20AI-alpha%20v0.5.0-2ea44f)](https://github.com/arkelythex/drenyra-ai)
 [![Drenyra Shell — pre-alpha](https://img.shields.io/badge/Drenyra%20Shell-pre--alpha-f0a000)](https://github.com/arkelythex/drenyra-shell)
 
-ARKELYTHEX builds the **Drenyra Accounting Ecosystem**: a verifiable financial operating system where fiscal correctness, tenant isolation, and auditability are product safety requirements. Web, CLI, agents, and memory share one discipline — receipts prove execution, contracts freeze behavior, and a human accountant remains the final authority.
+ARKELYTHEX’s **Drenyra Accounting Ecosystem** is a verifiable financial operating system where fiscal correctness, tenant isolation, and auditability are product safety requirements. Web, CLI, agents, and memory share one discipline — receipts prove execution, contracts freeze behavior, and a human accountant remains the final authority.
 
 ---
 
@@ -31,7 +31,7 @@ The core is **six repositories** with strict, explicit boundaries:
 
 - `drenyra-desktop` consumes released, versioned `drenyra-ai`; uses `drenyra-engram` for context.
 - `drenyra-shell` bundles foundation/operator skills and consumes a **pinned, package-local, checksum-verified** `drenyra-ai` (never `PATH`); uses `drenyra-engram`.
-- `drenyra-ai` never depends on Drenyra Desktop or Pi, and never knows Drenyra Shell exists.
+- `drenyra-ai` never depends on Drenyra Desktop or Drenyra Shell, and never knows Drenyra Shell exists.
 - `drenyra-engram` is independent — it informs, it never authorizes.
 - `drenyra-skills` owns specialized, versioned fiscal and jurisdictional knowledge as content, not runtime code; `drenyra-ai` validates and pins it for consumers.
 - `drenyra-guardian-angel` verifies against the frozen `drenyra-ai` contracts — never the author of what it reviews.

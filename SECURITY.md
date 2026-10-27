@@ -1,6 +1,6 @@
-> Fiscal convention: monetary values in the Drenyra ecosystem are BigInt cents; no float is ever used for money; version numbers are JSON integers, never floats.
+> Fiscal convention: monetary values in the Drenyra ecosystem are BigInt cents; no float is ever used for money; schema and contract revision fields are JSON integers, never floats.
 
-# Security Policy for ARKELYTHEX
+# ARKELYTHEX’s Security Policy
 
 ## Reporting a vulnerability
 
@@ -14,7 +14,7 @@
 - Severity (per the repository's bug report template).
 - Sanitized steps to reproduce.
 - Expected vs. actual behavior.
-- Environment versions (OS, runtime, package version — JSON integers, never floats).
+- Environment versions (OS, runtime, package version, CLI version).
 
 ## Handling SLA
 
@@ -24,4 +24,4 @@
 
 ## Scope
 
-This policy applies to all public ARKELYTHEX repositories: Drenyra, drenyra-ai, drenyra-pi, drenyra-engram, and the organization's auxiliary repositories. Repository-level `SECURITY.md` files refine this baseline; they never weaken it.
+This policy applies to all of ARKELYTHEX’s public repositories: drenyra-desktop, drenyra-ai, drenyra-shell, drenyra-engram, drenyra-skills, drenyra-guardian-angel, and the organization's auxiliary repositories. Repository-level `SECURITY.md` files refine this baseline; they never weaken it.

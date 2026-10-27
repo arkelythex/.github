@@ -1,2 +1,2 @@
 # .github
-ARKELYTEX organization profile and community health files
+ARKELYTHEX’s organization profile and community health files

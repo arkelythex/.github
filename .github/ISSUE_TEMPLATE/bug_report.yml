@@ -1,7 +1,7 @@
 # Fiscal convention: monetary values in the Drenyra ecosystem are BigInt cents;
-# no float is ever used for money; version numbers are JSON integers, never floats.
+# no float is ever used for money; schema and contract revision fields are JSON integers, never floats.
 name: Bug report
-description: Report a defect in an ARKELYTHEX repository
+description: Report a defect in one of ARKELYTHEX’s repositories
 title: "[bug] "
 labels: ["bug"]
 body:
@@ -30,7 +30,7 @@ body:
       options:
         - Drenyra
         - drenyra-ai
-        - drenyra-pi
+        - drenyra-shell
         - drenyra-engram
         - .github
         - Other
@@ -39,9 +39,9 @@ body:
   - type: input
     id: ruc
     attributes:
-      label: Fiscal scope — RUC (when applicable)
-      description: RUC affected by this bug, if the bug touches fiscal data.
-      placeholder: "e.g. 20123456789"
+      label: Fiscal scope — synthetic RUC (when applicable)
+      description: A synthetic, non-real RUC that reproduces the bug, if it touches fiscal data. Never a customer RUC.
+      placeholder: "e.g. 20000000001"
   - type: input
     id: period
     attributes:
@@ -74,5 +74,5 @@ body:
     id: env
     attributes:
       label: Environment versions
-      description: OS, runtime, package version, CLI version. Version numbers are JSON integers, never floats.
+      description: OS, runtime, package version, CLI version.
       placeholder: "OS: | Node: | drenyra-ai: 0.1.0 | CLI:"

@@ -1,17 +1,17 @@
 # Support
 
-> Fiscal convention: monetary values in the Drenyra ecosystem are BigInt cents; no float is ever used for money; version numbers are JSON integers, never floats.
+> Fiscal convention: monetary values in the Drenyra ecosystem are BigInt cents; no float is ever used for money; schema and contract revision fields are JSON integers, never floats.
 
 ## Community Support
 
-- **Issues**: use GitHub Issues on the **relevant product repository** (Drenyra, drenyra-ai, drenyra-pi, drenyra-engram) for bug reports and feature requests. Issues are triaged by maintainers.
+- **Issues**: use GitHub Issues on the **relevant product repository** (drenyra-desktop, drenyra-ai, drenyra-shell, drenyra-engram, drenyra-skills, drenyra-guardian-angel) for bug reports and feature requests. Issues are triaged by maintainers.
 - **Discussions**: open a discussion or an issue for questions and general inquiries — public answers help everyone.
 
 ## Product Support
 
 | Product | Channel |
 | --- | --- |
-| Drenyra ecosystem (all four repos) | [Issues on the relevant repo](https://github.com/arkelythex) |
+| Drenyra ecosystem (all six repositories) | [Open an issue on the relevant repository](https://github.com/orgs/arkelythex/repositories) |
 | Security | [SECURITY.md](SECURITY.md) — private vulnerability reporting |
 
 ## Response Times

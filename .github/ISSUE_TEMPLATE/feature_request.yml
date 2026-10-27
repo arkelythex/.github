@@ -1,7 +1,7 @@
 # Fiscal convention: monetary values in the Drenyra ecosystem are BigInt cents;
-# no float is ever used for money; version numbers are JSON integers, never floats.
+# no float is ever used for money; schema and contract revision fields are JSON integers, never floats.
 name: Feature request
-description: Propose a feature for an ARKELYTHEX repository
+description: Propose a feature for one of ARKELYTHEX’s repositories
 title: "[feature] "
 labels: ["enhancement"]
 body:
@@ -17,7 +17,7 @@ body:
       options:
         - Drenyra
         - drenyra-ai
-        - drenyra-pi
+        - drenyra-shell
         - drenyra-engram
         - .github
         - Other
