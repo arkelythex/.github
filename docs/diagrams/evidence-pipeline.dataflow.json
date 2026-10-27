@@ -39,7 +39,7 @@
     { "id": "receipt", "type": "security", "label": "RDA Receipt", "sublabel": "Ed25519 signed", "stage": 1, "row": 1, "tag": "frozen" },
     { "id": "db", "type": "database", "label": "Accounting DB", "sublabel": "tenant-isolated", "stage": 2, "row": 0, "tag": "transactional truth" },
     { "id": "ledger", "type": "database", "label": "Audit Ledger", "sublabel": "append-only", "stage": 2, "row": 1, "tag": "immutable" },
-    { "id": "command", "type": "frontend", "label": "Command Center", "sublabel": "operator view", "stage": 3, "row": 0, "tag": "human surface" },
+    { "id": "command", "type": "frontend", "label": "Drenyra Desktop", "sublabel": "operator view", "stage": 3, "row": 0, "tag": "human surface" },
     { "id": "guardian", "type": "security", "label": "Guardian Angel", "sublabel": "adversarial check", "stage": 3, "row": 1, "tag": "not the author" },
     { "id": "engram", "type": "database", "label": "Drenyra Engram", "sublabel": "institutional memory", "stage": 3, "row": 2, "tag": "informs only" }
   ],
