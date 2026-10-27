@@ -606,8 +606,8 @@ rect.c-bg-rect { fill: var(--bg); }
           <text x="127" y="111" class="t-muted" font-size="7" text-anchor="middle">final authority</text>
         </g>
 
-        <g id="node-command" data-node-id="command" data-node-label="Command Center" tabindex="0" role="button" aria-label="Focus Command Center, operator surface, Sequence participant" aria-pressed="false" data-node-kind="frontend" data-node-sublabel="operator surface" data-node-context="Sequence participant">
-          <title>Command Center · operator surface · Sequence participant</title>
+        <g id="node-command" data-node-id="command" data-node-label="Drenyra Desktop" tabindex="0" role="button" aria-label="Focus Drenyra Desktop, operator surface, Sequence participant" aria-pressed="false" data-node-kind="frontend" data-node-sublabel="operator surface" data-node-context="Sequence participant">
+          <title>Drenyra Desktop · operator surface · Sequence participant</title>
           <rect x="225.60000000000002" y="72" width="130" height="54" rx="6" class="c-mask"/>
           <rect x="225.60000000000002" y="72" width="130" height="54" rx="6" class="c-frontend" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="frontend" class="semantic-sigil s-frontend" transform="translate(231.60000000000002 78) scale(0.6875)">
@@ -616,7 +616,7 @@ rect.c-bg-rect { fill: var(--bg); }
             <circle cx="4.1" cy="4.8" r=".7" class="sigil-fill"/>
             <circle cx="6.3" cy="4.8" r=".7" class="sigil-fill"/>
           </g>
-          <text data-node-label="" x="290.6" y="94" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Command Center</text>
+          <text data-node-label="" x="290.6" y="94" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Drenyra Desktop</text>
           <text x="290.6" y="111" class="t-muted" font-size="7" text-anchor="middle">operator surface</text>
         </g>
 

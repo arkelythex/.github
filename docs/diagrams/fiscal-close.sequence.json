@@ -29,7 +29,7 @@
   },
   "participants": [
     { "id": "accountant", "type": "external", "label": "Human Accountant", "sublabel": "final authority" },
-    { "id": "command", "type": "frontend", "label": "Command Center", "sublabel": "operator surface" },
+    { "id": "command", "type": "frontend", "label": "Drenyra Desktop", "sublabel": "operator surface" },
     { "id": "ai", "type": "backend", "label": "Drenyra AI", "sublabel": "protocol + runtime" },
     { "id": "db", "type": "database", "label": "Accounting DB", "sublabel": "transactional truth" },
     { "id": "ledger", "type": "database", "label": "Audit Ledger", "sublabel": "append-only" },
