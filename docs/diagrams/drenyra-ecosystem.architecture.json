@@ -37,7 +37,7 @@
     {
       "id": "command",
       "type": "frontend",
-      "label": "Drenyra Command Center",
+      "label": "Drenyra Desktop",
       "sublabel": "web + API + TUI",
       "pos": [280, 320],
       "size": [200, 68],
@@ -161,7 +161,7 @@
       "dot": "cyan",
       "title": "Command and operator experience",
       "items": [
-        "Command Center consumes released, versioned drenyra-ai",
+        "Drenyra Desktop consumes released, versioned drenyra-ai",
         "Humans authorize; agents prepare and never decide"
       ]
     },
