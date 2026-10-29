@@ -2,7 +2,7 @@
 
 # ARKELYTHEX’s Release Checklist
 
-Applies to all of ARKELYTHEX’s repositories that release artifacts (currently drenyra-desktop, drenyra-ai, drenyra-shell, drenyra-engram, drenyra-skills, drenyra-guardian-angel).
+Applies to all of ARKELYTHEX’s repositories that release artifacts (currently drenyra-console, drenyra-ai, drenyra-shell, drenyra-engram, drenyra-skills, drenyra-guardian-angel).
 
 ## Version policy
 

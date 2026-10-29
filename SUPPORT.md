@@ -4,7 +4,7 @@
 
 ## Community Support
 
-- **Issues**: use GitHub Issues on the **relevant product repository** (drenyra-desktop, drenyra-ai, drenyra-shell, drenyra-engram, drenyra-skills, drenyra-guardian-angel) for bug reports and feature requests. Issues are triaged by maintainers.
+- **Issues**: use GitHub Issues on the **relevant product repository** (drenyra-console, drenyra-ai, drenyra-shell, drenyra-engram, drenyra-skills, drenyra-guardian-angel) for bug reports and feature requests. Issues are triaged by maintainers.
 - **Discussions**: open a discussion or an issue for questions and general inquiries — public answers help everyone.
 
 ## Product Support
