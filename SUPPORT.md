@@ -18,7 +18,8 @@
 
 | Severity | Response time |
 | --- | --- |
-| Critical (security, data loss) | Within 24h |
+| Critical (data loss, total outage) | Within 24h |
+| Security vulnerabilities | Per [SECURITY.md](SECURITY.md) — acknowledgment within 5 business days |
 | High (blocking bug) | Within 48h |
 | Normal | Within 5 business days |
 | Low | Within 10 business days |
