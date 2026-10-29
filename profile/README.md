@@ -2,7 +2,7 @@
 
 > **Mission-grade intelligence systems for organizations operating in Latin America.**
 
-[![Drenyra AI — alpha v0.5.0](https://img.shields.io/badge/Drenyra%20AI-alpha%20v0.5.0-2ea44f)](https://github.com/arkelythex/drenyra-ai)
+[![Drenyra AI — alpha v0.8.0](https://img.shields.io/badge/Drenyra%20AI-alpha%20v0.8.0-2ea44f)](https://github.com/arkelythex/drenyra-ai)
 [![Drenyra Shell — pre-alpha](https://img.shields.io/badge/Drenyra%20Shell-pre--alpha-f0a000)](https://github.com/arkelythex/drenyra-shell)
 
 ARKELYTHEX’s **Drenyra Accounting Ecosystem** is a verifiable financial operating system where fiscal correctness, tenant isolation, and auditability are product safety requirements. Web, CLI, agents, and memory share one discipline — receipts prove execution, contracts freeze behavior, and a human accountant remains the final authority.
@@ -15,10 +15,10 @@ The core is **six repositories** with strict, explicit boundaries:
 
 | Repo                                                                           | Role                                                                                                      | Type                 | Status         |
 | ------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------- | -------------------- | -------------- |
-| [drenyra-desktop](https://github.com/arkelythex/drenyra-desktop)               | Drenyra Desktop — product UI, tenants, documents, close, reconciliation, approvals, SUNAT                 | Product / Desktop    | In development |
-| [drenyra-ai](https://github.com/arkelythex/drenyra-ai)                         | Verifiable Accounting Agent Ecosystem — protocol, runtime, receipts, ledger, missions, candidates, review | Runtime and protocol | Alpha (v0.5.0) |
+| [drenyra-console](https://github.com/arkelythex/drenyra-console)               | Drenyra Console — product UI, tenants, documents, close, reconciliation, approvals, SUNAT                 | Product / Console    | In development |
+| [drenyra-ai](https://github.com/arkelythex/drenyra-ai)                         | Verifiable Accounting Agent Ecosystem — protocol, runtime, receipts, ledger, missions, candidates, review | Runtime and protocol | Alpha (v0.8.0) |
 | [drenyra-shell](https://github.com/arkelythex/drenyra-shell)                   | Pi-native Accounting Operations Harness — operator experience, pinned verified runtime                    | Pi-native harness    | Pre-alpha      |
-| [drenyra-engram](https://github.com/arkelythex/drenyra-engram)                 | Institutional Accounting Memory — scope-first memory, lifecycle, provenance                               | Institutional memory | Alpha (v0.2.1) |
+| [drenyra-engram](https://github.com/arkelythex/drenyra-engram)                 | Institutional Accounting Memory — scope-first memory, lifecycle, provenance                               | Institutional memory | Alpha (v0.9.0) |
 | [drenyra-skills](https://github.com/arkelythex/drenyra-skills)                 | Versioned accounting, tax, and operational knowledge — content layer (content ≠ runtime)                  | Knowledge            | In development |
 | [drenyra-guardian-angel](https://github.com/arkelythex/drenyra-guardian-angel) | Independent adversarial verification — refutation, dual review, evidence checks                           | Verification         | In development |
 
@@ -29,9 +29,9 @@ The core is **six repositories** with strict, explicit boundaries:
 
 ### Dependency direction
 
-- `drenyra-desktop` consumes released, versioned `drenyra-ai`; uses `drenyra-engram` for context.
+- `drenyra-console` consumes released, versioned `drenyra-ai`; uses `drenyra-engram` for context.
 - `drenyra-shell` bundles foundation/operator skills and consumes a **pinned, package-local, checksum-verified** `drenyra-ai` (never `PATH`); uses `drenyra-engram`.
-- `drenyra-ai` never depends on Drenyra Desktop or Drenyra Shell, and never knows Drenyra Shell exists.
+- `drenyra-ai` never depends on Drenyra Console or Drenyra Shell, and never knows Drenyra Shell exists.
 - `drenyra-engram` is independent — it informs, it never authorizes.
 - `drenyra-skills` owns specialized, versioned fiscal and jurisdictional knowledge as content, not runtime code; `drenyra-ai` validates and pins it for consumers.
 - `drenyra-guardian-angel` verifies against the frozen `drenyra-ai` contracts — never the author of what it reviews.
@@ -120,14 +120,14 @@ Drenyra and Elvyra operate across layers 1–4 today. Layer 5 lands next, and on
 | [admin](https://github.com/arkelythex/admin)                               | Administrative tooling and operational utilities             | Maintenance / review |
 | [elect-validate](https://github.com/arkelythex/elect-validate)             | Electoral act validation suite for Peru's ONPE (Go, CLI, web) | Maintenance / review |
 
-Future verticals (industrial operations, public sector, edge) are planned but have no public repositories yet — they will land as clearly-identified repos, never mixed into `drenyra-desktop`.
+Future verticals (industrial operations, public sector, edge) are planned but have no public repositories yet — they will land as clearly-identified repos, never mixed into `drenyra-console`.
 
 ---
 
 ## Current priorities — Q4 2026
 
 1. **Drenyra AI ecosystem maturity** — Phases 2c (hybrid orchestration) + 3 are current; expose `agents/` as a package subpath, keep releasing with provenance (SHA-256 manifest, SBOM, signed tag) and drive toward **v1.0**.
-2. **Drenyra Engram engine** — deliver Evidence Objects (v0.7.0), Evidence Lifecycle (v0.8.0), and Review Workspace (v0.9.0); freeze strategy on neutral contracts + PostgreSQL authority.
+2. **Drenyra Engram engine** — Evidence Objects (v0.7.0), Evidence Lifecycle (v0.8.0), and Review Workspace (v0.9.0) are shipped; next is freezing the strategy on neutral contracts + PostgreSQL authority.
 3. **Drenyra Shell harness** — land runtime pin 0.3.0 (fiscal harness extraction complete), `/drenyra:status` + `/drenyra:doctor` end-to-end.
 4. **Drenyra scope discipline** — no new non-accounting verticals enter the product repo; progressive retirement of foreign folders.
 
